@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HỌC THẬT — Study Reality</title>
+
+<style>
+:root{
+    --navy:#10233f;
+    --blue:#2563eb;
+    --blue2:#60a5fa;
+    --green:#10b981;
+    --orange:#f59e0b;
+    --red:#ef4444;
+    --bg:#f5f7fb;
+    --white:#fff;
+    --text:#172033;
+    --muted:#64748b;
+    --border:#e5eaf2;
+    --shadow:0 12px 35px rgba(15,23,42,.08);
+    --radius:18px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(16,35,63,.97);
+    backdrop-filter:blur(12px);
+    color:white;
+}
+
+.nav{
+    max-width:1150px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:1px;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#60a5fa;
+}
+
+.nav-links{
+    display:flex;
+    gap:5px;
+}
+
+.nav-links button{
+    border:0;
+    background:none;
+    color:#dbeafe;
+    padding:9px 12px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:14px;
+    white-space:nowrap;
+}
+
+.nav-links button:hover,
+.nav-links button.active{
+    background:#ffffff18;
+    color:white;
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    color:white;
+    font-size:25px;
+}
+
+main{
+    max-width:1150px;
+    margin:auto;
+    padding:35px 20px 70px;
+}
+
+.section{
+    display:none;
+    animation:appear .35s ease;
+}
+
+.section.active{
+    display:block;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#10233f,#1e40af);
+    color:white;
+    border-radius:28px;
+    padding:60px 35px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    position:relative;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:#60a5fa22;
+    right:-70px;
+    top:-90px;
+}
+
+.hero small{
+    color:#bfdbfe;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.hero h1{
+    font-size:clamp(36px,6.5vw,62px);
+    line-height:1.1;
+    margin:15px 0;
+    position:relative;
+    z-index:1;
+}
+
+.hero h1 span{
+    color:#60a5fa;
+}
+
+.hero p{
+    max-width:760px;
+    margin:20px auto;
+    color:#dbeafe;
+    font-size:17px;
+    position:relative;
+    z-index:1;
+}
+
+.author{
+    font-size:13px !important;
+    color:#bfdbfe !important;
+    margin-top:24px !important;
+}
+
+.author b{
+    color:white;
+}
+
+.btn{
+    border:0;
+    padding:12px 22px;
+    border-radius:11px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:15px;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:var(--blue);
+    color:white;
+}
+
+.btn-green{
+    background:var(--green);
+    color:white;
+}
+
+.btn-danger{
+    background:var(--red);
+    color:white;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:24px;
+    box-shadow:var(--shadow);
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eff6ff;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+/* TITLES */
+
+.page-title{
+    margin-bottom:25px;
+}
+
+.page-title h2{
+    font-size:32px;
+    color:var(--navy);
+}
+
+.page-title p{
+    color:var(--muted);
+}
+
+/* NOTICE */
+
+.notice{
+    padding:15px 18px;
+    border-radius:12px;
+    background:#fff7ed;
+    border-left:4px solid var(--orange);
+    color:#92400e;
+    margin-bottom:20px;
+}
+
+/* QUIZ */
+
+.question{
+    padding:22px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.question:last-child{
+    border-bottom:0;
+}
+
+.question-title{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.scale{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.scale label{
+    cursor:pointer;
+}
+
+.scale input{
+    display:none;
+}
+
+.scale span{
+    display:block;
+    text-align:center;
+    padding:12px 5px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.scale input:checked + span{
+    background:var(--blue);
+    color:white;
+    border-color:var(--blue);
+}
+
+/* RESULT */
+
+.result{
+    margin-top:25px;
+    padding:25px;
+    border-radius:16px;
+    background:#eff6ff;
+    text-align:center;
+    display:none;
+}
+
+.score{
+    font-size:55px;
+    font-weight:900;
+    color:var(--blue);
+}
+
+/* INPUT */
+
+input[type="number"],
+input[type="text"]{
+    width:100%;
+    border:1px solid var(--border);
+    padding:12px;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus{
+    border-color:var(--blue);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+/* STUDY */
+
+.task{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.task input[type="checkbox"]{
+    width:22px;
+    height:22px;
+    accent-color:var(--green);
+}
+
+.progress{
+    height:13px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:var(--green);
+    transition:.3s;
+}
+
+/* METHODS */
+
+.method-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.2s;
+}
+
+.method-card:hover{
+    transform:translateY(-3px);
+}
+
+.method-tag{
+    display:inline-block;
+    background:#eff6ff;
+    color:var(--blue);
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.method-card h3{
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.method-time{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 10px;
+    background:#ecfdf5;
+    color:#047857;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.method-example{
+    margin-top:15px;
+    padding:12px;
+    background:#f8fafc;
+    border-radius:10px;
+    font-size:13px;
+    color:var(--muted);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:white;
+    border:1px solid var(--border);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat-value{
+    font-size:32px;
+    font-weight:900;
+    color:var(--blue);
+}
+
+.stat-label{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:13px;
+    border-bottom:1px solid var(--border);
+    text-align:left;
+}
+
+th{
+    background:#f8fafc;
+}
+
+/* CHART */
+
+.chart{
+    height:230px;
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
+    border-bottom:1px solid var(--border);
+    padding:20px 5px 0;
+    overflow-x:auto;
+}
+
+.bar-group{
+    min-width:45px;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:4px;
+}
+
+.bar{
+    width:16px;
+    min-height:2px;
+    border-radius:5px 5px 0 0;
+}
+
+.fake{
+    background:var(--blue);
+}
+
+.real{
+    background:var(--green);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+}
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#172033;
+    color:white;
+    padding:13px 20px;
+    border-radius:10px;
+    opacity:0;
+    transform:translateY(15px);
+    transition:.3s;
+    z-index:9999;
+}
+
+.toast.show{
+    opacity:1;
+    transform:none;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .menu{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:60px;
+        left:0;
+        right:0;
+        background:var(--navy);
+        padding:10px;
+        flex-direction:column;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-links button{
+        text-align:left;
+        padding:13px;
+    }
+
+    .grid,
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:45px 20px;
+    }
+
+    .scale{
+        grid-template-columns:1fr;
+    }
+
+    .scale span{
+        text-align:left;
+    }
+
+    .nav{
+        padding:13px 15px;
+    }
+
+    main{
+        padding:25px 14px 60px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="nav">
+
+<div class="logo" onclick="go('home')">
+HỌC <span>THẬT</span>
+</div>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+<div class="nav-links" id="navLinks">
+
+<button data-tab="home" onclick="go('home')">
+Trang chủ
+</button>
+
+<button data-tab="quiz" onclick="go('quiz')">
+Nỗ lực ảo
+</button>
+
+<button data-tab="brain" onclick="go('brain')">
+Brain Rot
+</button>
+
+<button data-tab="study" onclick="go('study')">
+Học thật
+</button>
+
+<button data-tab="methods" onclick="go('methods')">
+Phương pháp học
+</button>
+
+<button data-tab="progress" onclick="go('progress')">
+Tiến bộ
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<div class="toast" id="toast">
+Đã lưu!
+</div>
+
+
+<main>
+
+
+<!-- ================= TRANG CHỦ ================= -->
+
+<section id="home" class="section active">
+
+<div class="hero">
+
+<small>STUDY REALITY PROJECT</small>
+
+<h1>
+HỌC THÔNG MINH.<br>
+<span>TẠO KẾT QUẢ THẬT.</span>
+</h1>
+
+<p>
+Bớt cảm giác bận rộn. HỌC THẬT giúp học sinh nhận diện sự khác biệt
+giữa <b>cảm giác mình đang học nhiều</b> và <b>kết quả học tập thực tế</b>,
+từ đó chọn phương pháp học phù hợp và làm chủ thời gian.
+</p>
+
+<button class="btn btn-green" onclick="go('quiz')">
+Bắt đầu tự đánh giá
+</button>
+
+<p class="author">
+Sản phẩm được nghiên cứu và phát triển bởi
+<b>Huỳnh Quốc Thịnh_Niên khoá 2024-2027</b>
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card" onclick="go('quiz')" style="cursor:pointer">
+
+<div class="icon">🧠</div>
+
+<h3>Nỗ lực ảo</h3>
+
+<p>
+Tự đánh giá những hành vi khiến bạn có cảm giác
+mình đang học rất nhiều nhưng kết quả chưa tương xứng.
+</p>
+
+</div>
+
+
+<div class="card" onclick="go('brain')" style="cursor:pointer">
+
+<div class="icon">📱</div>
+
+<h3>Brain Rot</h3>
+
+<p>
+Ghi nhận thời gian dành cho TikTok, Shorts và Reels
+để quan sát thói quen sử dụng nội dung ngắn.
+</p>
+
+</div>
+
+
+<div class="card" onclick="go('study')" style="cursor:pointer">
+
+<div class="icon">📚</div>
+
+<h3>Học thật</h3>
+
+<p>
+Chuyển từ mục tiêu chung chung sang những nhiệm vụ
+cụ thể có thể kiểm tra được.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+<h3>🎯 Sản phẩm hoạt động như thế nào?</h3>
+
+<div class="grid">
+
+<div>
+<b>01 — Nhận diện</b>
+<p>
+Đánh giá thói quen học tập và mức độ
+"nỗ lực ảo".
+</p>
+</div>
+
+<div>
+<b>02 — Theo dõi</b>
+<p>
+Ghi nhận thời gian sử dụng nội dung ngắn
+và thời gian học tập trung.
+</p>
+</div>
+
+<div>
+<b>03 — Đối chiếu</b>
+<p>
+So sánh hành vi hằng ngày với nhiệm vụ
+thực tế đã hoàn thành.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= NỖ LỰC ẢO ================= -->
+
+<section id="quiz" class="section">
+
+<div class="page-title">
+
+<h2>🧠 Kiểm tra Nỗ lực ảo</h2>
+
+<p>
+Đánh giá thói quen của bạn trong những ngày gần đây.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+<b>Lưu ý:</b>
+Đây là công cụ tự đánh giá phục vụ dự án nghiên cứu,
+không phải công cụ chẩn đoán tâm lý.
+
+</div>
+
+
+<div class="card">
+
+<form id="quizForm">
+
+<div id="questions"></div>
+
+<button class="btn btn-primary" style="width:100%;margin-top:20px">
+Xem kết quả
+</button>
+
+</form>
+
+
+<div class="result" id="quizResult">
+
+<div>Tổng điểm</div>
+
+<div class="score" id="score">
+0/50
+</div>
+
+<h3 id="level" style="margin:10px 0"></h3>
+
+<p id="feedback"></p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= BRAIN ROT ================= -->
+
+<section id="brain" class="section">
+
+<div class="page-title">
+
+<h2>📱 Theo dõi Brain Rot</h2>
+
+<p>
+Ghi nhận thời gian sử dụng nội dung ngắn trong ngày.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+Mục tiêu của công cụ là giúp bạn
+<b>nhìn thấy dữ liệu sử dụng của chính mình</b>,
+không nhằm gắn nhãn hay chẩn đoán người dùng.
+
+</div>
+
+
+<div class="card">
+
+<div class="form-group">
+
+<label>TikTok — phút</label>
+
+<input type="number" id="tiktok" min="0" value="0">
+
+</div>
+
+
+<div class="form-group">
+
+<label>YouTube Shorts — phút</label>
+
+<input type="number" id="shorts" min="0" value="0">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Instagram Reels — phút</label>
+
+<input type="number" id="reels" min="0" value="0">
+
+</div>
+
+
+<div style="background:#f8fafc;padding:25px;border-radius:15px;text-align:center;margin:20px 0">
+
+<div style="color:#64748b">
+Tổng thời gian nội dung ngắn
+</div>
+
+<div class="score" id="videoTotal">
+0
+</div>
+
+<div>
+phút / ngày
+</div>
+
+<strong id="videoLevel" style="display:block;margin-top:8px"></strong>
+
+</div>
+
+
+<button class="btn btn-primary" onclick="saveVideo()" style="width:100%">
+Lưu dữ liệu hôm nay
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= HỌC THẬT ================= -->
+
+<section id="study" class="section">
+
+<div class="page-title">
+
+<h2>📚 Học thật</h2>
+
+<p>
+Đừng chỉ ghi "học Toán".
+Hãy biến nó thành một nhiệm vụ có thể kiểm tra được.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="task">
+
+<input type="checkbox" id="done1">
+
+<input type="text" id="task1" placeholder="Ví dụ: Làm 20 bài tập Toán">
+
+</div>
+
+
+<div class="task">
+
+<input type="checkbox" id="done2">
+
+<input type="text" id="task2" placeholder="Ví dụ: Học 20 từ vựng tiếng Anh / tiếng Trung">
+
+</div>
+
+
+<div class="task">
+
+<input type="checkbox" id="done3">
+
+<input type="text" id="task3" placeholder="Ví dụ: Lập dàn ý và viết 1 đoạn văn">
+
+</div>
+
+
+<div class="form-group" style="margin-top:25px">
+
+<label>
+Thời gian học tập trung thực tế — phút
+</label>
+
+<input type="number" id="studyTime" min="0" value="0">
+
+</div>
+
+
+<div style="display:flex;justify-content:space-between">
+
+<b>Mức độ hoàn thành</b>
+
+<b id="rate">0%</b>
+
+</div>
+
+
+<div class="progress">
+
+<div class="progress-bar" id="progressBar"></div>
+
+</div>
+
+
+<button class="btn btn-green" onclick="saveStudy()" style="width:100%;margin-top:20px">
+Lưu kết quả hôm nay
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= PHƯƠNG PHÁP HỌC ================= -->
+
+<section id="methods" class="section">
+
+<div class="page-title">
+
+<h2>📖 Tổng hợp Phương pháp học hiệu quả</h2>
+
+<p>
+Những phương pháp học tập khoa học, cực kỳ đơn giản và dễ áp dụng cho học sinh.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+<b>Lưu ý quan trọng:</b> Không có một phương pháp nào hoàn hảo cho tất cả mọi môn học. Hãy thử nghiệm để chọn ra phương pháp giúp bạn tập trung cao nhất và đạt kết quả thực tế tốt nhất.
+
+</div>
+
+
+<div class="grid">
+
+
+<!-- POMODORO 25/5 -->
+
+<div class="method-card">
+
+<span class="method-tag">
+CHỐNG TRÌ HOÃN
+</span>
+
+<h3>🍅 Pomodoro 25/5</h3>
+
+<p>
+Chia nhỏ thời gian: Học tập trung cao độ trong <b>25 phút</b>, sau đó nghỉ ngắn <b>5 phút</b>. Mỗi 4 phiên học thì nghỉ dài 15-20 phút.
+</p>
+
+<span class="method-time">
+25 phút học → 5 phút nghỉ
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+25 phút giải bài tập Toán → Nghỉ 5 phút vươn vai → 25 phút đọc bài Lịch sử.
+
+</div>
+
+</div>
+
+
+
+<!-- 50/10 -->
+
+<div class="method-card">
+
+<span class="method-tag">
+TẬP TRUNG SÂU (DEEP WORK)
+</span>
+
+<h3>⏱ Phương pháp 50/10</h3>
+
+<p>
+Học liên tục <b>50 phút</b> rồi nghỉ <b>10 phút</b>. Phù hợp với các môn cần tư duy logic sâu hoặc viết lách kéo dài mà không bị đứt đoạn tư duy.
+</p>
+
+<span class="method-time">
+50 phút học → 10 phút nghỉ
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+50 phút viết bài Văn hoặc luyện đề thi thử → Nghỉ 10 phút uống nước, thư giãn mắt.
+
+</div>
+
+</div>
+
+
+
+<!-- ACTIVE RECALL -->
+
+<div class="method-card">
+
+<span class="method-tag">
+GHI NHỚ LÂU
+</span>
+
+<h3>🧠 Active Recall (Gợi nhớ chủ động)</h3>
+
+<p>
+Thay vì đọc đi đọc lại tài liệu (dễ tạo cảm giác thuộc bài giả tạo), hãy <b>gập sách lại và tự hỏi — tự trả lời</b> hoặc tự viết lại kiến thức ra giấy.
+</p>
+
+<span class="method-time">
+Đọc 1 lần → Đóng sách → Tự nhớ & Viết ra
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Đọc xong công thức Vật lý → Đóng lại tự viết lại công thức và giải thích các đại lượng.
+
+</div>
+
+</div>
+
+
+
+<!-- SPACED REPETITION -->
+
+<div class="method-card">
+
+<span class="method-tag">
+CHỐNG QUÊN
+</span>
+
+<h3>🔁 Spaced Repetition (Lặp lại ngắt quãng)</h3>
+
+<p>
+Ôn lại bài học theo những khoảng thời gian tăng dần (Ngay sau 1 ngày → 3 ngày → 7 ngày → 30 ngày) để đưa kiến thức vào bộ nhớ dài hạn.
+</p>
+
+<span class="method-time">
+Học → Ôn sau 1 ngày → Ôn sau 1 tuần
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Học từ vựng hôm nay → Ôn lại vào tối mai → Ôn lại vào cuối tuần → Ôn lại trước kỳ thi.
+
+</div>
+
+</div>
+
+
+
+<!-- FEYNMAN -->
+
+<div class="method-card">
+
+<span class="method-tag">
+HIỂU BẢN CHẤT
+</span>
+
+<h3>👨‍🏫 Phương pháp Feynman</h3>
+
+<p>
+Thử <b>giải thích lại bài học bằng ngôn ngữ cực kỳ đơn giản</b> như đang dạy lại cho một người chưa biết gì (hoặc em nhỏ). Chỗ nào bị ngắc ngứ chính là chỗ bạn chưa hiểu rõ.
+</p>
+
+<span class="method-time">
+Học bài → Giải thích lại → Xem lại chỗ hổng
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Giải thích hiện tượng quang hợp hoặc một quy luật Sinh học bằng lời nói của chính bạn mà không dùng từ ngữ rườm rà.
+
+</div>
+
+</div>
+
+
+
+<!-- BLURTING METHOD -->
+
+<div class="method-card">
+
+<span class="method-tag">
+ÔN THI CẤP TỐC
+</span>
+
+<h3>📝 Blurting Method (Xả kiến thức)</h3>
+
+<p>
+Đọc qua một chương sách → Lấy một tờ giấy trắng và <b>viết ra tất cả những gì bạn nhớ được</b> → Dùng bút đỏ dò lại sách để thấy ngay phần bị sót/sai.
+</p>
+
+<span class="method-time">
+Đọc → Viết hết ra giấy trắng → Dò đáp án
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Viết toàn bộ các mốc sự kiện Lịch sử ra tờ giấy A4, sau đó mở sách kiểm tra xem sót sự kiện nào.
+
+</div>
+
+</div>
+
+
+
+<!-- CORNELL NOTE-TAKING -->
+
+<div class="method-card">
+
+<span class="method-tag">
+GHI CHÉP THÔNG MINH
+</span>
+
+<h3>📑 Phương pháp Cornell</h3>
+
+<p>
+Chia trang vở làm 3 phần: **Cột trái** (Từ khóa / Câu hỏi), **Cột phải** (Nội dung ghi chép chính), **Hàng dưới cùng** (Tóm tắt ngắn 2-3 câu).
+</p>
+
+<span class="method-time">
+Chia 3 phần → Ghi chép → Tóm tắt
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Ghi bài trên lớp ở cột phải, tối về điền câu hỏi ở cột trái và tóm tắt lại ở hàng cuối.
+
+</div>
+
+</div>
+
+
+
+<!-- EISENHOWER MATRIX -->
+
+<div class="method-card">
+
+<span class="method-tag">
+QUẢN LÝ BÀI TẬP
+</span>
+
+<h3>🎯 Ma trận Eisenhower</h3>
+
+<p>
+Phân loại bài tập thành 4 nhóm để không bị ngợp:
+1. **Gấp & Quan trọng** (Làm ngay)
+2. **Quan trọng nhưng Không gấp** (Lên lịch làm)
+3. **Gấp nhưng Không quan trọng** (Làm nhanh)
+4. **Không gấp & Không quan trọng** (Bỏ qua)
+</p>
+
+<span class="method-time">
+Lập danh sách → Phân loại → Thực hiện
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Bài tập về nhà mai nộp → Làm ngay. Ôn thi học kỳ tháng sau → Lên kế hoạch mỗi ngày 30 phút.
+
+</div>
+
+</div>
+
+
+
+<!-- SQ3R -->
+
+<div class="method-card">
+
+<span class="method-tag">
+ĐỌC HIỂU TÀI LIỆU
+</span>
+
+<h3>📚 Phương pháp SQ3R</h3>
+
+<p>
+Quy trình đọc sách hiệu quả gồm 5 bước: <b>Survey</b> (Xem trước) → <b>Question</b> (Đặt câu hỏi) → <b>Read</b> (Đọc) → <b>Recite</b> (Nhẩm lại) → <b>Review</b> (Ôn tập).
+</p>
+
+<span class="method-time">
+Lướt → Hỏi → Đọc → Nhớ → Ôn
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Đọc tiêu đề & mục lục bài Địa lý → Đặt câu hỏi bài này nói về gì? → Đọc nội dung → Tự trả lời.
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+<h3>💡 Hướng dẫn nhanh: Nên chọn phương pháp nào?</h3>
+
+<p style="margin-top:10px">
+
+• Hay bị xao nhãng, trì hoãn: Dùng <b>Pomodoro 25/5</b> hoặc <b>Blurting Method</b>.
+
+</p>
+
+<p style="margin-top:8px">
+
+• Học các môn học thuộc (Anh, Trung, Sử, Địa, Sinh): Dùng <b>Active Recall + Spaced Repetition</b>.
+
+</p>
+
+<p style="margin-top:8px">
+
+• Gặp bài khó, môn tự nhiên (Toán, Lý, Hóa): Dùng <b>Feynman</b> để hiểu bản chất.
+
+</p>
+
+<p style="margin-top:8px">
+
+• Có quá nhiều bài tập không biết làm từ đâu: Dùng <b>Ma trận Eisenhower</b> để sắp xếp thứ tự.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= TIẾN BỘ ================= -->
+
+<section id="progress" class="section">
+
+<div class="page-title">
+
+<h2>📊 Tiến bộ của tôi</h2>
+
+<p>
+Dữ liệu được lưu trực tiếp trên thiết bị của bạn.
+</p>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-value" id="statFake">-</div>
+
+<div class="stat-label">Nỗ lực ảo (Điểm TB)</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-value" id="statVideo">-</div>
+
+<div class="stat-label">Video ngắn (Phút/Ngày)</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-value" id="statStudy">-</div>
+
+<div class="stat-label">Hoàn thành bài tập (%)</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Xu hướng 7 ngày gần nhất</h3>
+
+<p style="font-size:13px;margin-top:5px">
+
+<span style="color:#2563eb">■</span> Điểm Nỗ lực ảo
+
+&nbsp;&nbsp;
+
+<span style="color:#10b981">■</span> Tỷ lệ Học thật (%)
+
+</p>
+
+
+<div class="chart" id="chart"></div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+<h3>Lịch sử ghi nhận</h3>
+
+<div class="table-wrap" style="margin-top:10px">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Ngày</th>
+
+<th>Nỗ lực ảo</th>
+
+<th>Video ngắn</th>
+
+<th>Học thật</th>
+
+<th>Thời gian học</th>
+
+</tr>
+
+</thead>
+
+<tbody id="history"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="card" style="border-color:#fecaca;margin-top:20px">
+
+<h3 style="color:#dc2626">Xóa dữ liệu</h3>
+
+<p style="margin:8px 0 15px;font-size:14px;color:var(--muted)">
+Tất cả dữ liệu được lưu cục bộ trên trình duyệt thiết bị của bạn.
+</p>
+
+<button class="btn btn-danger" onclick="clearData()">
+Xóa toàn bộ dữ liệu
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+<b>HỌC THẬT — STUDY REALITY</b>
+
+<br><br>
+
+Sản phẩm hỗ trợ nghiên cứu về thói quen học tập, nỗ lực ảo và việc sử dụng nội dung ngắn ở học sinh.
+
+<br><br>
+
+<b>
+Sản phẩm được nghiên cứu và phát triển bởi
+Huỳnh Quốc Thịnh_Niên khoá 2024-2027
+</b>
+
+<br><br>
+
+<small>
+Dữ liệu được lưu cục bộ trên thiết bị.
+</small>
+
+</footer>
+
+
+
+<script>
+
+const KEY="HOC_THAT_DATA";
+
+let data=JSON.parse(
+localStorage.getItem(KEY)||"{}"
+);
+
+
+const questions=[
+
+"Dành nhiều thời gian chuẩn bị bàn học, trang trí sổ hoặc sắp xếp tài liệu hơn là thực sự học.",
+
+"Có cảm giác mình học rất nhiều nhưng nhiệm vụ quan trọng vẫn chưa hoàn thành.",
+
+"Thường xuyên xem video về phương pháp học tập nhưng ít áp dụng.",
+
+"Khi gặp bài khó, dễ chuyển sang một hoạt động khác có vẻ như vẫn đang học.",
+
+"Đặt mục tiêu rất cao nhưng lại trì hoãn việc bắt đầu.",
+
+"Thường xuyên kiểm tra điện thoại trong lúc học.",
+
+"Tải hoặc mua nhiều tài liệu nhưng ít sử dụng chúng.",
+
+"Dành nhiều thời gian lập kế hoạch nhưng khó thực hiện đúng kế hoạch.",
+
+"Tìm kiếm phương pháp học tốt nhất nhiều hơn thời gian thực sự học.",
+
+"Cuối ngày cảm thấy rất bận rộn nhưng lượng bài hoàn thành không nhiều."
+
+];
+
+
+function today(){
+
+const d=new Date();
+
+return d.getFullYear()+"-"+
+String(d.getMonth()+1).padStart(2,"0")+"-"+
+String(d.getDate()).padStart(2,"0");
+
+}
+
+
+function save(){
+
+localStorage.setItem(
+KEY,
+JSON.stringify(data)
+);
+
+}
+
+
+function toast(text){
+
+const t=document.getElementById("toast");
+
+t.textContent=text;
+
+t.classList.add("show");
+
+setTimeout(
+()=>t.classList.remove("show"),
+2500
+);
+
+}
+
+
+function go(id){
+
+document.querySelectorAll(".section")
+.forEach(x=>x.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+
+
+document.querySelectorAll(".nav-links button")
+.forEach(x=>x.classList.remove("active"));
+
+
+const btn=document.querySelector(
+`.nav-links button[data-tab="${id}"]`
+);
+
+if(btn)
+btn.classList.add("active");
+
+
+document.getElementById("navLinks")
+.classList.remove("show");
+
+
+window.scrollTo(0,0);
+
+
+if(id==="progress")
+renderProgress();
+
+if(id==="brain")
+loadVideo();
+
+if(id==="study")
+loadStudy();
+
+}
+
+
+function toggleMenu(){
+
+document.getElementById("navLinks")
+.classList.toggle("show");
+
+}
+
+
+
+/* ================= QUIZ ================= */
+
+function renderQuestions(){
+
+const box=document.getElementById("questions");
+
+if(!box) return;
+
+box.innerHTML=questions.map((q,i)=>`
+
+<div class="question">
+
+<div class="question-title">
+${i+1}. ${q}
+</div>
+
+<div class="scale">
+
+${[1,2,3,4,5].map(n=>`
+
+<label>
+
+<input
+type="radio"
+name="q${i}"
+value="${n}"
+required
+>
+
+<span>
+
+${n}<br>
+
+<small>
+
+${
+n===1?"Không đúng":
+n===2?"Ít đúng":
+n===3?"Phân vân":
+n===4?"Đúng":
+"Rất đúng"
+}
+
+</small>
+
+</span>
+
+</label>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+document.getElementById("quizForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let score=0;
+
+for(let i=0;i<questions.length;i++){
+
+const selected=document.querySelector(
+`input[name="q${i}"]:checked`
+);
+
+if(!selected){
+
+alert("Bạn hãy trả lời đủ 10 câu.");
+
+return;
+
+}
+
+score+=Number(selected.value);
+
+}
+
+const t=today();
+
+if(!data[t])
+data[t]={};
+
+
+data[t].fake=score;
+
+save();
+
+
+document.getElementById("score")
+.textContent=score+"/50";
+
+
+const level=document.getElementById("level");
+
+const feedback=document.getElementById("feedback");
+
+
+if(score<=20){
+
+level.textContent="Mức độ Nỗ lực ảo: THẤP";
+
+level.style.color="var(--green)";
+
+feedback.textContent="Chúc mừng! Bạn có thói quen học tập thực tế tốt và tập trung vào kết quả.";
+
+}else if(score<=35){
+
+level.textContent="Mức độ Nỗ lực ảo: TRUNG BÌNH";
+
+level.style.color="var(--orange)";
+
+feedback.textContent="Bạn có dấu hiệu rơi vào cảm giác 'đang học' nhiều hơn là hoàn thành bài tập thực tế. Hãy chọn 1 phương pháp học tập trung để cải thiện.";
+
+}else{
+
+level.textContent="Mức độ Nỗ lực ảo: CAO";
+
+level.style.color="var(--red)";
+
+feedback.textContent="Cảnh báo! Bạn đang dành rất nhiều thời gian cho các việc chuẩn bị hoặc cảm giác bận rộn nhưng kết quả chưa như mong muốn. Hãy bắt đầu chia nhỏ bài tập ngay hôm nay.";
+
+}
+
+
+document.getElementById("quizResult").style.display="block";
+
+toast("Đã lưu kết quả đánh giá!");
+
+});
+
+
+
+/* ================= BRAIN ROT ================= */
+
+function saveVideo(){
+
+const tt=Number(document.getElementById("tiktok").value)||0;
+
+const sh=Number(document.getElementById("shorts").value)||0;
+
+const re=Number(document.getElementById("reels").value)||0;
+
+const total=tt+sh+re;
+
+
+const t=today();
+
+if(!data[t])
+data[t]={};
+
+
+data[t].tiktok=tt;
+
+data[t].shorts=sh;
+
+data[t].reels=re;
+
+data[t].video=total;
+
+save();
+
+
+document.getElementById("videoTotal").textContent=total;
+
+updateVideoLevel(total);
+
+toast("Đã lưu thời gian video ngắn!");
+
+}
+
+
+function updateVideoLevel(total){
+
+const el=document.getElementById("videoLevel");
+
+if(total===0){
+
+el.textContent="Tuyệt vời! Bạn không sử dụng video ngắn hôm nay.";
+
+el.style.color="var(--green)";
+
+}else if(total<=60){
+
+el.textContent="Mức độ hợp lý (Dưới 1 tiếng / ngày).";
+
+el.style.color="var(--blue)";
+
+}else if(total<=120){
+
+el.textContent="Chú ý: Bạn đang tốn từ 1-2 tiếng cho nội dung ngắn.";
+
+el.style.color="var(--orange)";
+
+}else{
+
+el.textContent="Cảnh báo: Dành quá nhiều thời gian lướt video ngắn dễ gây xao nhãng!";
+
+el.style.color="var(--red)";
+
+}
+
+}
+
+
+function loadVideo(){
+
+const t=today();
+
+const item=data[t]||{};
+
+document.getElementById("tiktok").value=item.tiktok||0;
+
+document.getElementById("shorts").value=item.shorts||0;
+
+document.getElementById("reels").value=item.reels||0;
+
+const total=item.video||0;
+
+document.getElementById("videoTotal").textContent=total;
+
+updateVideoLevel(total);
+
+}
+
+
+
+/* ================= HỌC THẬT ================= */
+
+function updateStudyRate(){
+
+const c1=document.getElementById("done1").checked?1:0;
+
+const c2=document.getElementById("done2").checked?1:0;
+
+const c3=document.getElementById("done3").checked?1:0;
+
+const count=c1+c2+c3;
+
+const rate=Math.round((count/3)*100);
+
+document.getElementById("rate").textContent=rate+"%";
+
+document.getElementById("progressBar").style.width=rate+"%";
+
+return {count,rate};
+
+}
+
+
+["done1","done2","done3"].forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(el)
+el.addEventListener("change",updateStudyRate);
+
+});
+
+
+function saveStudy(){
+
+const t1=document.getElementById("task1").value;
+
+const t2=document.getElementById("task2").value;
+
+const t3=document.getElementById("task3").value;
+
+const st=Number(document.getElementById("studyTime").value)||0;
+
+const {count,rate}=updateStudyRate();
+
+
+const t=today();
+
+if(!data[t])
+data[t]={};
+
+
+data[t].tasks=[t1,t2,t3];
+
+data[t].dones=[
+
+document.getElementById("done1").checked,
+
+document.getElementById("done2").checked,
+
+document.getElementById("done3").checked
+
+];
+
+data[t].studyTime=st;
+
+data[t].rate=rate;
+
+data[t].completedTasks=count;
+
+save();
+
+
+toast("Đã lưu kết quả học tập!");
+
+}
+
+
+function loadStudy(){
+
+const t=today();
+
+const item=data[t]||{};
+
+const tasks=item.tasks||["","",""];
+
+const dones=item.dones||[false,false,false];
+
+
+document.getElementById("task1").value=tasks[0]||"";
+
+document.getElementById("task2").value=tasks[1]||"";
+
+document.getElementById("task3").value=tasks[2]||"";
+
+
+document.getElementById("done1").checked=!!dones[0];
+
+document.getElementById("done2").checked=!!dones[1];
+
+document.getElementById("done3").checked=!!dones[2];
+
+
+document.getElementById("studyTime").value=item.studyTime||0;
+
+updateStudyRate();
+
+}
+
+
+
+/* ================= TIẾN BỘ ================= */
+
+function renderProgress(){
+
+const dates=Object.keys(data).sort().reverse();
+
+const history=document.getElementById("history");
+
+const chart=document.getElementById("chart");
+
+
+if(dates.length===0){
+
+document.getElementById("statFake").textContent="-";
+
+document.getElementById("statVideo").textContent="-";
+
+document.getElementById("statStudy").textContent="-";
+
+history.innerHTML='<tr><td colspan="5" style="text-align:center;color:var(--muted)">Chưa có dữ liệu. Hãy thực hiện kiểm tra và lưu kết quả!</td></tr>';
+
+chart.innerHTML='<div style="margin:auto;color:var(--muted)">Chưa có dữ liệu biểu đồ</div>';
+
+return;
+
+}
+
+
+let totalFake=0, countFake=0;
+
+let totalVid=0, countVid=0;
+
+let totalRate=0, countRate=0;
+
+
+history.innerHTML=dates.map(d=>{
+
+const item=data[d];
+
+if(item.fake){ totalFake+=item.fake; countFake++; }
+
+if(item.video!==undefined){ totalVid+=item.video; countVid++; }
+
+if(item.rate!==undefined){ totalRate+=item.rate; countRate++; }
+
+
+return `
+
+<tr>
+
+<td><b>${d}</b></td>
+
+<td>${item.fake ? item.fake+'/50' : '-'}</td>
+
+<td>${item.video!==undefined ? item.video+' phút' : '-'}</td>
+
+<td>${item.rate!==undefined ? item.rate+'%' : '-'}</td>
+
+<td>${item.studyTime!==undefined ? item.studyTime+' phút' : '-'}</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+
+document.getElementById("statFake").textContent=countFake?Math.round(totalFake/countFake)+'/50':'-';
+
+document.getElementById("statVideo").textContent=countVid?Math.round(totalVid/countVid)+'p':'-';
+
+document.getElementById("statStudy").textContent=countRate?Math.round(totalRate/countRate)+'%':'-';
+
+
+// Biểu đồ 7 ngày gần nhất
+
+const last7=dates.slice(0,7).reverse();
+
+chart.innerHTML=last7.map(d=>{
+
+const item=data[d];
+
+const fakeH=item.fake?(item.fake/50)*100:0;
+
+const realH=item.rate!==undefined?item.rate:0;
+
+
+return `
+
+<div class="bar-group" title="${d}">
+
+<div class="bar fake" style="height:${Math.max(fakeH,5)}%"></div>
+
+<div class="bar real" style="height:${Math.max(realH,5)}%"></div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+function clearData(){
+
+if(confirm("Bạn có chắc chắn muốn xóa toàn bộ dữ liệu đã lưu?")){
+
+localStorage.removeItem(KEY);
+
+data={};
+
+renderProgress();
+
+toast("Đã xóa sạch dữ liệu!");
+
+}
+
+}
+
+
+// Khởi tạo ban đầu
+
+renderQuestions();
+
+</script>
+
+</body>
+
+</html>
