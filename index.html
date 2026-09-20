@@ -39,24 +39,23 @@ body{
     line-height:1.6;
 }
 
-/* NAV */
-
 nav{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(16,35,63,.96);
+    background:rgba(16,35,63,.97);
     backdrop-filter:blur(12px);
     color:white;
 }
 
 .nav{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
     padding:15px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
@@ -64,6 +63,7 @@ nav{
     font-weight:900;
     letter-spacing:1px;
     cursor:pointer;
+    white-space:nowrap;
 }
 
 .logo span{
@@ -79,10 +79,11 @@ nav{
     border:0;
     background:none;
     color:#dbeafe;
-    padding:9px 13px;
+    padding:9px 12px;
     border-radius:9px;
     cursor:pointer;
     font-size:14px;
+    white-space:nowrap;
 }
 
 .nav-links button:hover,
@@ -99,12 +100,10 @@ nav{
     font-size:25px;
 }
 
-/* MAIN */
-
 main{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
-    padding:35px 20px 80px;
+    padding:35px 20px 70px;
 }
 
 .section{
@@ -133,7 +132,7 @@ main{
     background:linear-gradient(135deg,#10233f,#1e40af);
     color:white;
     border-radius:28px;
-    padding:65px 35px;
+    padding:60px 35px;
     text-align:center;
     box-shadow:var(--shadow);
     overflow:hidden;
@@ -143,12 +142,12 @@ main{
 .hero:after{
     content:"";
     position:absolute;
-    width:250px;
-    height:250px;
+    width:260px;
+    height:260px;
     border-radius:50%;
     background:#60a5fa22;
     right:-70px;
-    top:-80px;
+    top:-90px;
 }
 
 .hero small{
@@ -158,9 +157,11 @@ main{
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,70px);
+    font-size:clamp(38px,7vw,68px);
     line-height:1;
     margin:15px 0;
+    position:relative;
+    z-index:1;
 }
 
 .hero h1 span{
@@ -168,10 +169,22 @@ main{
 }
 
 .hero p{
-    max-width:700px;
+    max-width:760px;
     margin:20px auto;
     color:#dbeafe;
     font-size:17px;
+    position:relative;
+    z-index:1;
+}
+
+.author{
+    font-size:13px !important;
+    color:#bfdbfe !important;
+    margin-top:24px !important;
+}
+
+.author b{
+    color:white;
 }
 
 .btn{
@@ -196,11 +209,6 @@ main{
 .btn-green{
     background:var(--green);
     color:white;
-}
-
-.btn-outline{
-    background:white;
-    color:var(--navy);
 }
 
 .btn-danger{
@@ -260,7 +268,7 @@ main{
     color:var(--muted);
 }
 
-/* WARNING */
+/* NOTICE */
 
 .notice{
     padding:15px 18px;
@@ -390,6 +398,57 @@ input:focus{
     transition:.3s;
 }
 
+/* METHODS */
+
+.method-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:var(--shadow);
+    transition:.2s;
+}
+
+.method-card:hover{
+    transform:translateY(-3px);
+}
+
+.method-tag{
+    display:inline-block;
+    background:#eff6ff;
+    color:var(--blue);
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.method-card h3{
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.method-time{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 10px;
+    background:#ecfdf5;
+    color:#047857;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.method-example{
+    margin-top:15px;
+    padding:12px;
+    background:#f8fafc;
+    border-radius:10px;
+    font-size:13px;
+    color:var(--muted);
+}
+
 /* STATS */
 
 .stats{
@@ -504,7 +563,7 @@ footer{
 
 /* MOBILE */
 
-@media(max-width:750px){
+@media(max-width:850px){
 
     .menu{
         display:block;
@@ -546,6 +605,14 @@ footer{
     .scale span{
         text-align:left;
     }
+
+    .nav{
+        padding:13px 15px;
+    }
+
+    main{
+        padding:25px 14px 60px;
+    }
 }
 </style>
 </head>
@@ -553,372 +620,906 @@ footer{
 <body>
 
 <nav>
-    <div class="nav">
-        <div class="logo" onclick="go('home')">
-            HỌC <span>THẬT</span>
-        </div>
 
-        <button class="menu" onclick="toggleMenu()">☰</button>
+<div class="nav">
 
-        <div class="nav-links" id="navLinks">
-            <button data-tab="home" onclick="go('home')">Trang chủ</button>
-            <button data-tab="quiz" onclick="go('quiz')">Nỗ lực ảo</button>
-            <button data-tab="brain" onclick="go('brain')">Brain Rot</button>
-            <button data-tab="study" onclick="go('study')">Học thật</button>
-            <button data-tab="progress" onclick="go('progress')">Tiến bộ</button>
-        </div>
-    </div>
+<div class="logo" onclick="go('home')">
+HỌC <span>THẬT</span>
+</div>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+
+<div class="nav-links" id="navLinks">
+
+<button data-tab="home" onclick="go('home')">
+Trang chủ
+</button>
+
+<button data-tab="quiz" onclick="go('quiz')">
+Nỗ lực ảo
+</button>
+
+<button data-tab="brain" onclick="go('brain')">
+Brain Rot
+</button>
+
+<button data-tab="study" onclick="go('study')">
+Học thật
+</button>
+
+<button data-tab="methods" onclick="go('methods')">
+Phương pháp học
+</button>
+
+<button data-tab="progress" onclick="go('progress')">
+Tiến bộ
+</button>
+
+</div>
+
+</div>
+
 </nav>
 
-<div class="toast" id="toast">Đã lưu!</div>
+
+<div class="toast" id="toast">
+Đã lưu!
+</div>
+
 
 <main>
 
-<!-- HOME -->
+
+<!-- ================= TRANG CHỦ ================= -->
 
 <section id="home" class="section active">
 
-    <div class="hero">
+<div class="hero">
 
-        <small>STUDY REALITY PROJECT</small>
+<small>STUDY REALITY PROJECT</small>
 
-        <h1>HỌC THẬT.<br>
-            <span>KHÔNG CHỈ BẬN RỘN.</span>
-        </h1>
+<h1>
+HỌC HIỆU QUẢ.<br>
+<span>KHÔNG CHỈ HỌC NHIỀU.</span>
+</h1>
 
-        <p>
-            Một sản phẩm hỗ trợ học sinh nhận diện sự khác biệt
-            giữa <b>cảm giác đang học</b> và <b>kết quả học tập thực tế</b>,
-            đồng thời theo dõi ảnh hưởng của việc tiêu thụ nội dung ngắn.
-        </p>
+<p>
+HỌC THẬT là sản phẩm hỗ trợ học sinh nhận diện sự khác biệt
+giữa <b>cảm giác đang học</b> và <b>kết quả học tập thực tế</b>,
+đồng thời theo dõi thói quen sử dụng nội dung ngắn.
+</p>
 
-        <button class="btn btn-green" onclick="go('quiz')">
-            Bắt đầu tự đánh giá
-        </button>
+<button class="btn btn-green" onclick="go('quiz')">
+Bắt đầu tự đánh giá
+</button>
 
-    </div>
+<p class="author">
+Sản phẩm được nghiên cứu và phát triển bởi
+<b>Huỳnh Quốc Thịnh_Niên khoá 2024-2027</b>
+</p>
 
-    <div class="grid">
+</div>
 
-        <div class="card" onclick="go('quiz')" style="cursor:pointer">
-            <div class="icon">🧠</div>
-            <h3>Nỗ lực ảo</h3>
-            <p>
-                Tự đánh giá những hành vi khiến bạn có cảm giác
-                mình đang học rất nhiều nhưng kết quả chưa tương xứng.
-            </p>
-        </div>
 
-        <div class="card" onclick="go('brain')" style="cursor:pointer">
-            <div class="icon">📱</div>
-            <h3>Brain Rot</h3>
-            <p>
-                Ghi nhận thời gian dành cho TikTok, Shorts và Reels
-                để quan sát thói quen sử dụng nội dung ngắn.
-            </p>
-        </div>
+<div class="grid">
 
-        <div class="card" onclick="go('study')" style="cursor:pointer">
-            <div class="icon">📚</div>
-            <h3>Học thật</h3>
-            <p>
-                Chuyển từ mục tiêu chung chung sang những nhiệm vụ
-                cụ thể có thể kiểm tra được.
-            </p>
-        </div>
+<div class="card" onclick="go('quiz')" style="cursor:pointer">
 
-    </div>
+<div class="icon">🧠</div>
 
-    <div class="card" style="margin-top:20px">
+<h3>Nỗ lực ảo</h3>
 
-        <h3>🎯 Sản phẩm hoạt động như thế nào?</h3>
+<p>
+Tự đánh giá những hành vi khiến bạn có cảm giác
+mình đang học rất nhiều nhưng kết quả chưa tương xứng.
+</p>
 
-        <div class="grid">
+</div>
 
-            <div>
-                <b>01 — Nhận diện</b>
-                <p>Đánh giá thói quen học tập và mức độ "nỗ lực ảo".</p>
-            </div>
 
-            <div>
-                <b>02 — Theo dõi</b>
-                <p>Ghi nhận thời gian sử dụng nội dung ngắn và thời gian học tập trung.</p>
-            </div>
+<div class="card" onclick="go('brain')" style="cursor:pointer">
 
-            <div>
-                <b>03 — Đối chiếu</b>
-                <p>So sánh hành vi hằng ngày với nhiệm vụ thực tế đã hoàn thành.</p>
-            </div>
+<div class="icon">📱</div>
 
-        </div>
+<h3>Brain Rot</h3>
 
-    </div>
+<p>
+Ghi nhận thời gian dành cho TikTok, Shorts và Reels
+để quan sát thói quen sử dụng nội dung ngắn.
+</p>
+
+</div>
+
+
+<div class="card" onclick="go('study')" style="cursor:pointer">
+
+<div class="icon">📚</div>
+
+<h3>Học thật</h3>
+
+<p>
+Chuyển từ mục tiêu chung chung sang những nhiệm vụ
+cụ thể có thể kiểm tra được.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+<h3>🎯 Sản phẩm hoạt động như thế nào?</h3>
+
+<div class="grid">
+
+<div>
+<b>01 — Nhận diện</b>
+<p>
+Đánh giá thói quen học tập và mức độ
+"nỗ lực ảo".
+</p>
+</div>
+
+<div>
+<b>02 — Theo dõi</b>
+<p>
+Ghi nhận thời gian sử dụng nội dung ngắn
+và thời gian học tập trung.
+</p>
+</div>
+
+<div>
+<b>03 — Đối chiếu</b>
+<p>
+So sánh hành vi hằng ngày với nhiệm vụ
+thực tế đã hoàn thành.
+</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- QUIZ -->
+
+<!-- ================= NỖ LỰC ẢO ================= -->
 
 <section id="quiz" class="section">
 
-    <div class="page-title">
-        <h2>🧠 Kiểm tra Nỗ lực ảo</h2>
-        <p>Đánh giá thói quen của bạn trong những ngày gần đây.</p>
-    </div>
+<div class="page-title">
 
-    <div class="notice">
-        <b>Lưu ý:</b> Đây là công cụ tự đánh giá phục vụ dự án nghiên cứu,
-        không phải công cụ chẩn đoán tâm lý.
-    </div>
+<h2>🧠 Kiểm tra Nỗ lực ảo</h2>
 
-    <div class="card">
+<p>
+Đánh giá thói quen của bạn trong những ngày gần đây.
+</p>
 
-        <form id="quizForm">
+</div>
 
-            <div id="questions"></div>
 
-            <button class="btn btn-primary" style="width:100%;margin-top:20px">
-                Xem kết quả
-            </button>
+<div class="notice">
 
-        </form>
+<b>Lưu ý:</b>
+Đây là công cụ tự đánh giá phục vụ dự án nghiên cứu,
+không phải công cụ chẩn đoán tâm lý.
 
-        <div class="result" id="quizResult">
+</div>
 
-            <div>Tổng điểm</div>
 
-            <div class="score" id="score">0/50</div>
+<div class="card">
 
-            <h3 id="level"></h3>
+<form id="quizForm">
 
-            <p id="feedback"></p>
+<div id="questions"></div>
 
-        </div>
+<button class="btn btn-primary"
+style="width:100%;margin-top:20px">
 
-    </div>
+Xem kết quả
+
+</button>
+
+</form>
+
+
+<div class="result" id="quizResult">
+
+<div>Tổng điểm</div>
+
+<div class="score" id="score">
+0/50
+</div>
+
+<h3 id="level"></h3>
+
+<p id="feedback"></p>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- BRAIN ROT -->
+
+<!-- ================= BRAIN ROT ================= -->
 
 <section id="brain" class="section">
 
-    <div class="page-title">
-        <h2>📱 Theo dõi Brain Rot</h2>
-        <p>
-            Ghi nhận thời gian sử dụng nội dung ngắn trong ngày.
-        </p>
-    </div>
+<div class="page-title">
 
-    <div class="notice">
-        Mục tiêu của công cụ là giúp bạn <b>nhìn thấy dữ liệu sử dụng của chính mình</b>,
-        không nhằm gắn nhãn hay chẩn đoán người dùng.
-    </div>
+<h2>📱 Theo dõi Brain Rot</h2>
 
-    <div class="card">
+<p>
+Ghi nhận thời gian sử dụng nội dung ngắn trong ngày.
+</p>
 
-        <div class="form-group">
-            <label>TikTok — phút</label>
-            <input type="number" id="tiktok" min="0" value="0">
-        </div>
+</div>
 
-        <div class="form-group">
-            <label>YouTube Shorts — phút</label>
-            <input type="number" id="shorts" min="0" value="0">
-        </div>
 
-        <div class="form-group">
-            <label>Instagram Reels — phút</label>
-            <input type="number" id="reels" min="0" value="0">
-        </div>
+<div class="notice">
 
-        <div style="background:#f8fafc;padding:25px;border-radius:15px;text-align:center;margin:20px 0">
+Mục tiêu của công cụ là giúp bạn
+<b>nhìn thấy dữ liệu sử dụng của chính mình</b>,
+không nhằm gắn nhãn hay chẩn đoán người dùng.
 
-            <div style="color:#64748b">
-                Tổng thời gian nội dung ngắn
-            </div>
+</div>
 
-            <div class="score" id="videoTotal">0</div>
 
-            <div>phút / ngày</div>
+<div class="card">
 
-            <strong id="videoLevel"></strong>
+<div class="form-group">
 
-        </div>
+<label>TikTok — phút</label>
 
-        <button class="btn btn-primary" onclick="saveVideo()" style="width:100%">
-            Lưu dữ liệu hôm nay
-        </button>
+<input
+type="number"
+id="tiktok"
+min="0"
+value="0"
+>
 
-    </div>
+</div>
+
+
+<div class="form-group">
+
+<label>YouTube Shorts — phút</label>
+
+<input
+type="number"
+id="shorts"
+min="0"
+value="0"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Instagram Reels — phút</label>
+
+<input
+type="number"
+id="reels"
+min="0"
+value="0"
+>
+
+</div>
+
+
+<div
+style="background:#f8fafc;padding:25px;border-radius:15px;text-align:center;margin:20px 0"
+>
+
+<div style="color:#64748b">
+Tổng thời gian nội dung ngắn
+</div>
+
+<div class="score" id="videoTotal">
+0
+</div>
+
+<div>
+phút / ngày
+</div>
+
+<strong id="videoLevel"></strong>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="saveVideo()"
+style="width:100%"
+>
+
+Lưu dữ liệu hôm nay
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- STUDY -->
+
+<!-- ================= HỌC THẬT ================= -->
 
 <section id="study" class="section">
 
-    <div class="page-title">
-        <h2>📚 Học thật</h2>
-        <p>
-            Đừng chỉ ghi "học Toán". Hãy biến nó thành một nhiệm vụ
-            có thể kiểm tra được.
-        </p>
-    </div>
+<div class="page-title">
 
-    <div class="card">
+<h2>📚 Học thật</h2>
 
-        <div class="task">
-            <input type="checkbox" id="done1">
-            <input type="text" id="task1" placeholder="Ví dụ: Làm 20 bài Toán">
-        </div>
+<p>
+Đừng chỉ ghi "học Toán".
+Hãy biến nó thành một nhiệm vụ có thể kiểm tra được.
+</p>
 
-        <div class="task">
-            <input type="checkbox" id="done2">
-            <input type="text" id="task2" placeholder="Ví dụ: Học 20 từ vựng">
-        </div>
+</div>
 
-        <div class="task">
-            <input type="checkbox" id="done3">
-            <input type="text" id="task3" placeholder="Ví dụ: Viết 1 đoạn văn">
-        </div>
 
-        <div class="form-group" style="margin-top:25px">
-            <label>Thời gian học tập trung thực tế — phút</label>
-            <input type="number" id="studyTime" min="0" value="0">
-        </div>
+<div class="card">
 
-        <div style="display:flex;justify-content:space-between">
-            <b>Mức độ hoàn thành</b>
-            <b id="rate">0%</b>
-        </div>
+<div class="task">
 
-        <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
+<input type="checkbox" id="done1">
 
-        <button class="btn btn-green"
-                onclick="saveStudy()"
-                style="width:100%;margin-top:20px">
-            Lưu kết quả hôm nay
-        </button>
+<input
+type="text"
+id="task1"
+placeholder="Ví dụ: Làm 20 bài Toán"
+>
 
-    </div>
+</div>
+
+
+<div class="task">
+
+<input type="checkbox" id="done2">
+
+<input
+type="text"
+id="task2"
+placeholder="Ví dụ: Học 20 từ vựng"
+>
+
+</div>
+
+
+<div class="task">
+
+<input type="checkbox" id="done3">
+
+<input
+type="text"
+id="task3"
+placeholder="Ví dụ: Viết 1 đoạn văn"
+>
+
+</div>
+
+
+<div class="form-group" style="margin-top:25px">
+
+<label>
+Thời gian học tập trung thực tế — phút
+</label>
+
+<input
+type="number"
+id="studyTime"
+min="0"
+value="0"
+>
+
+</div>
+
+
+<div style="display:flex;justify-content:space-between">
+
+<b>Mức độ hoàn thành</b>
+
+<b id="rate">0%</b>
+
+</div>
+
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+
+<button
+class="btn btn-green"
+onclick="saveStudy()"
+style="width:100%;margin-top:20px"
+>
+
+Lưu kết quả hôm nay
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- PROGRESS -->
+
+<!-- ================= PHƯƠNG PHÁP HỌC ================= -->
+
+<section id="methods" class="section">
+
+<div class="page-title">
+
+<h2>📖 Phương pháp học</h2>
+
+<p>
+Một số phương pháp học phổ biến, đơn giản và dễ áp dụng.
+</p>
+
+</div>
+
+
+<div class="notice">
+
+<b>Không có một phương pháp phù hợp với tất cả mọi người.</b>
+Hãy thử nghiệm và theo dõi xem phương pháp nào giúp bạn
+tập trung và hoàn thành nhiệm vụ tốt hơn.
+
+</div>
+
+
+<div class="grid">
+
+
+<!-- POMODORO -->
+
+<div class="method-card">
+
+<span class="method-tag">
+TẬP TRUNG
+</span>
+
+<h3>🍅 Pomodoro 25/5</h3>
+
+<p>
+Học tập trung trong <b>25 phút</b>,
+sau đó nghỉ <b>5 phút</b>.
+Sau mỗi chu kỳ, tiếp tục một phiên học mới.
+</p>
+
+<span class="method-time">
+25 phút học → 5 phút nghỉ
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ:</b><br>
+
+25 phút làm bài Toán →
+5 phút nghỉ →
+25 phút học tiếng Trung →
+5 phút nghỉ.
+
+</div>
+
+</div>
+
+
+
+<!-- 50/10 -->
+
+<div class="method-card">
+
+<span class="method-tag">
+TẬP TRUNG SÂU
+</span>
+
+<h3>⏱ 50/10</h3>
+
+<p>
+Học tập trung <b>50 phút</b> rồi nghỉ
+<b>10 phút</b>. Phù hợp với nhiệm vụ
+cần thời gian tập trung lâu hơn.
+</p>
+
+<span class="method-time">
+50 phút học → 10 phút nghỉ
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ:</b><br>
+
+50 phút ôn một chương Sinh học →
+10 phút nghỉ →
+tiếp tục phần tiếp theo.
+
+</div>
+
+</div>
+
+
+
+<!-- ACTIVE RECALL -->
+
+<div class="method-card">
+
+<span class="method-tag">
+GHI NHỚ
+</span>
+
+<h3>🧠 Active Recall</h3>
+
+<p>
+Thay vì chỉ đọc lại tài liệu,
+hãy <b>tự nhớ và tự trả lời câu hỏi</b>
+mà không nhìn đáp án.
+</p>
+
+<span class="method-time">
+Đọc → Đóng tài liệu → Tự nhớ
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ:</b><br>
+
+Học từ vựng tiếng Trung →
+đóng sách →
+tự viết lại nghĩa và cách đọc.
+
+</div>
+
+</div>
+
+
+
+<!-- SPACED REPETITION -->
+
+<div class="method-card">
+
+<span class="method-tag">
+ÔN TẬP
+</span>
+
+<h3>🔁 Spaced Repetition</h3>
+
+<p>
+Ôn lại kiến thức theo những khoảng thời gian
+cách nhau thay vì học tất cả trong một lần.
+</p>
+
+<span class="method-time">
+Học → Ôn → Giãn cách → Ôn lại
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ:</b><br>
+
+Học hôm nay →
+ôn ngày mai →
+ôn lại sau vài ngày →
+ôn lại sau một tuần.
+
+</div>
+
+</div>
+
+
+
+<!-- FEYNMAN -->
+
+<div class="method-card">
+
+<span class="method-tag">
+HIỂU BÀI
+</span>
+
+<h3>👨‍🏫 Feynman</h3>
+
+<p>
+Học một kiến thức rồi thử
+<b>giải thích lại bằng ngôn ngữ đơn giản</b>
+như đang dạy cho một người khác.
+</p>
+
+<span class="method-time">
+Học → Giải thích → Phát hiện chỗ chưa hiểu
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ:</b><br>
+
+Sau khi học một định luật Vật lý,
+thử giải thích nó bằng vài câu
+mà không dùng thuật ngữ phức tạp.
+
+</div>
+
+</div>
+
+
+
+<!-- SQ3R -->
+
+<div class="method-card">
+
+<span class="method-tag">
+ĐỌC HIỂU
+</span>
+
+<h3>📚 SQ3R</h3>
+
+<p>
+Một cách đọc tài liệu có hệ thống:
+<b>Survey → Question → Read → Recall → Review</b>.
+</p>
+
+<span class="method-time">
+Xem trước → Hỏi → Đọc → Nhớ → Ôn
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ:</b><br>
+
+Xem tiêu đề chương →
+đặt câu hỏi →
+đọc nội dung →
+tự nói lại →
+ôn những ý chính.
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:20px">
+
+<h3>💡 Chọn phương pháp nào?</h3>
+
+<p style="margin-top:10px">
+
+Nếu bạn dễ mất tập trung,
+có thể thử <b>Pomodoro 25/5</b>.
+
+</p>
+
+<p style="margin-top:8px">
+
+Nếu cần ghi nhớ kiến thức,
+thử <b>Active Recall + Spaced Repetition</b>.
+
+</p>
+
+<p style="margin-top:8px">
+
+Nếu cần hiểu sâu một khái niệm,
+thử <b>Feynman</b>.
+
+</p>
+
+<p style="margin-top:8px">
+
+Nếu đang đọc một chương sách dài,
+có thể thử <b>SQ3R</b>.
+
+</p>
+
+<p style="margin-top:12px">
+
+Quan trọng nhất là thử nghiệm và theo dõi
+xem phương pháp nào thực sự phù hợp với bạn.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= TIẾN BỘ ================= -->
 
 <section id="progress" class="section">
 
-    <div class="page-title">
-        <h2>📊 Tiến bộ của tôi</h2>
-        <p>Dữ liệu được lưu trực tiếp trên thiết bị của bạn.</p>
-    </div>
+<div class="page-title">
 
-    <div class="stats">
+<h2>📊 Tiến bộ của tôi</h2>
 
-        <div class="stat">
-            <div class="stat-value" id="statFake">-</div>
-            <div class="stat-label">Nỗ lực ảo</div>
-        </div>
+<p>
+Dữ liệu được lưu trực tiếp trên thiết bị của bạn.
+</p>
 
-        <div class="stat">
-            <div class="stat-value" id="statVideo">-</div>
-            <div class="stat-label">Video ngắn / phút</div>
-        </div>
+</div>
 
-        <div class="stat">
-            <div class="stat-value" id="statStudy">-</div>
-            <div class="stat-label">Hoàn thành nhiệm vụ</div>
-        </div>
 
-    </div>
+<div class="stats">
 
-    <div class="card">
+<div class="stat">
 
-        <h3>Xu hướng 7 ngày</h3>
+<div class="stat-value" id="statFake">
+-
+</div>
 
-        <p style="font-size:13px">
-            <span style="color:#2563eb">■</span>
-            Nỗ lực ảo &nbsp;&nbsp;
-            <span style="color:#10b981">■</span>
-            Học thật
-        </p>
+<div class="stat-label">
+Nỗ lực ảo
+</div>
 
-        <div class="chart" id="chart"></div>
+</div>
 
-    </div>
 
-    <div class="card">
+<div class="stat">
 
-        <h3>Lịch sử</h3>
+<div class="stat-value" id="statVideo">
+-
+</div>
 
-        <div class="table-wrap">
+<div class="stat-label">
+Video ngắn / phút
+</div>
 
-            <table>
+</div>
 
-                <thead>
-                    <tr>
-                        <th>Ngày</th>
-                        <th>Nỗ lực ảo</th>
-                        <th>Video</th>
-                        <th>Học thật</th>
-                        <th>Thời gian học</th>
-                    </tr>
-                </thead>
 
-                <tbody id="history"></tbody>
+<div class="stat">
 
-            </table>
+<div class="stat-value" id="statStudy">
+-
+</div>
 
-        </div>
+<div class="stat-label">
+Hoàn thành nhiệm vụ
+</div>
 
-    </div>
+</div>
 
-    <div class="card" style="border-color:#fecaca">
+</div>
 
-        <h3 style="color:#dc2626">Xóa dữ liệu</h3>
 
-        <p>
-            Tất cả dữ liệu của sản phẩm được lưu bằng LocalStorage
-            trên trình duyệt.
-        </p>
+<div class="card">
 
-        <button class="btn btn-danger" onclick="clearData()">
-            Xóa toàn bộ dữ liệu
-        </button>
+<h3>Xu hướng 7 ngày</h3>
 
-    </div>
+<p style="font-size:13px">
+
+<span style="color:#2563eb">
+■
+</span>
+Nỗ lực ảo
+
+&nbsp;&nbsp;
+
+<span style="color:#10b981">
+■
+</span>
+Học thật
+
+</p>
+
+
+<div class="chart" id="chart">
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>Lịch sử</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Ngày</th>
+
+<th>Nỗ lực ảo</th>
+
+<th>Video</th>
+
+<th>Học thật</th>
+
+<th>Thời gian học</th>
+
+</tr>
+
+</thead>
+
+<tbody id="history">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="card" style="border-color:#fecaca">
+
+<h3 style="color:#dc2626">
+Xóa dữ liệu
+</h3>
+
+<p>
+Tất cả dữ liệu của sản phẩm được lưu bằng LocalStorage
+trên trình duyệt.
+</p>
+
+<button
+class="btn btn-danger"
+onclick="clearData()"
+>
+
+Xóa toàn bộ dữ liệu
+
+</button>
+
+</div>
 
 </section>
 
 </main>
 
+
+
 <footer>
 
-    <b>HỌC THẬT — STUDY REALITY</b>
+<b>HỌC THẬT — STUDY REALITY</b>
 
-    <br>
+<br><br>
 
-    Sản phẩm hỗ trợ nghiên cứu về thói quen học tập,
-    nỗ lực ảo và việc sử dụng nội dung ngắn ở học sinh.
+Sản phẩm hỗ trợ nghiên cứu về thói quen học tập,
+nỗ lực ảo và việc sử dụng nội dung ngắn ở học sinh.
 
-    <br><br>
+<br><br>
 
-    <small>Dữ liệu được lưu cục bộ trên thiết bị.</small>
+<b>
+Sản phẩm được nghiên cứu và phát triển bởi
+Huỳnh Quốc Thịnh_Niên khoá 2024-2027
+</b>
+
+<br><br>
+
+<small>
+Dữ liệu được lưu cục bộ trên thiết bị.
+</small>
 
 </footer>
+
 
 
 <script>
 
 const KEY="HOC_THAT_DATA";
 
-let data=JSON.parse(localStorage.getItem(KEY)||"{}");
+let data=JSON.parse(
+localStorage.getItem(KEY)||"{}"
+);
+
 
 const questions=[
 
@@ -944,510 +1545,661 @@ const questions=[
 
 ];
 
+
 function today(){
 
-    const d=new Date();
+const d=new Date();
 
-    return d.getFullYear()+"-"+
-
-    String(d.getMonth()+1).padStart(2,"0")+"-"+
-
-    String(d.getDate()).padStart(2,"0");
+return d.getFullYear()+"-"+
+String(d.getMonth()+1).padStart(2,"0")+"-"+
+String(d.getDate()).padStart(2,"0");
 
 }
+
 
 function save(){
 
-    localStorage.setItem(KEY,JSON.stringify(data));
+localStorage.setItem(
+KEY,
+JSON.stringify(data)
+);
 
 }
+
 
 function toast(text){
 
-    const t=document.getElementById("toast");
+const t=document.getElementById("toast");
 
-    t.textContent=text;
+t.textContent=text;
 
-    t.classList.add("show");
+t.classList.add("show");
 
-    setTimeout(()=>t.classList.remove("show"),2500);
+setTimeout(
+()=>t.classList.remove("show"),
+2500
+);
 
 }
+
 
 function go(id){
 
-    document.querySelectorAll(".section")
-        .forEach(x=>x.classList.remove("active"));
+document.querySelectorAll(".section")
+.forEach(x=>x.classList.remove("active"));
 
-    document.getElementById(id).classList.add("active");
+document.getElementById(id)
+.classList.add("active");
 
-    document.querySelectorAll(".nav-links button")
-        .forEach(x=>x.classList.remove("active"));
 
-    const btn=document.querySelector(
-        `.nav-links button[data-tab="${id}"]`
-    );
+document.querySelectorAll(".nav-links button")
+.forEach(x=>x.classList.remove("active"));
 
-    if(btn)btn.classList.add("active");
 
-    document.getElementById("navLinks").classList.remove("show");
+const btn=document.querySelector(
+`.nav-links button[data-tab="${id}"]`
+);
 
-    window.scrollTo(0,0);
+if(btn)
+btn.classList.add("active");
 
-    if(id==="progress")renderProgress();
 
-    if(id==="brain")loadVideo();
+document.getElementById("navLinks")
+.classList.remove("show");
 
-    if(id==="study")loadStudy();
+
+window.scrollTo(0,0);
+
+
+if(id==="progress")
+renderProgress();
+
+if(id==="brain")
+loadVideo();
+
+if(id==="study")
+loadStudy();
 
 }
+
 
 function toggleMenu(){
 
-    document.getElementById("navLinks")
-        .classList.toggle("show");
+document.getElementById("navLinks")
+.classList.toggle("show");
 
 }
 
 
-/* QUIZ */
+
+/* ================= QUIZ ================= */
 
 function renderQuestions(){
 
-    const box=document.getElementById("questions");
+const box=document.getElementById("questions");
 
-    box.innerHTML=questions.map((q,i)=>`
+box.innerHTML=questions.map((q,i)=>`
 
-        <div class="question">
+<div class="question">
 
-            <div class="question-title">
-                ${i+1}. ${q}
-            </div>
+<div class="question-title">
+${i+1}. ${q}
+</div>
 
-            <div class="scale">
+<div class="scale">
 
-                ${[1,2,3,4,5].map(n=>`
+${[1,2,3,4,5].map(n=>`
 
-                    <label>
+<label>
 
-                        <input
-                            type="radio"
-                            name="q${i}"
-                            value="${n}"
-                            required
-                        >
+<input
+type="radio"
+name="q${i}"
+value="${n}"
+required
+>
 
-                        <span>
-                            ${n}<br>
-                            <small>
-                            ${
-                                n===1?"Không đúng":
-                                n===2?"Ít đúng":
-                                n===3?"Phân vân":
-                                n===4?"Đúng":
-                                "Rất đúng"
-                            }
-                            </small>
-                        </span>
+<span>
 
-                    </label>
+${n}<br>
 
-                `).join("")}
+<small>
 
-            </div>
+${
+n===1?"Không đúng":
+n===2?"Ít đúng":
+n===3?"Phân vân":
+n===4?"Đúng":
+"Rất đúng"
+}
 
-        </div>
+</small>
 
-    `).join("");
+</span>
+
+</label>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`).join("");
 
 }
 
-document.getElementById("quizForm").addEventListener(
-"submit",function(e){
 
-    e.preventDefault();
+document.getElementById("quizForm")
+.addEventListener("submit",function(e){
 
-    let score=0;
+e.preventDefault();
 
-    for(let i=0;i<questions.length;i++){
+let score=0;
 
-        const selected=
-        document.querySelector(
-            `input[name="q${i}"]:checked`
-        );
+for(let i=0;i<questions.length;i++){
 
-        score+=Number(selected.value);
+const selected=document.querySelector(
+`input[name="q${i}"]:checked`
+);
 
-    }
+if(!selected){
 
-    if(!data[today()])data[today()]={};
+alert("Bạn hãy trả lời đủ 10 câu.");
 
-    data[today()].fake=score;
+return;
 
-    save();
+}
 
-    document.getElementById("score").textContent=
-        score+"/50";
+score+=Number(selected.value);
 
-    const level=document.getElementById("level");
-    const feedback=document.getElementById("feedback");
+}
 
-    if(score<=20){
 
-        level.textContent="Mức độ thấp";
+if(!data[today()])
+data[today()]={};
 
-        level.style.color="#10b981";
 
-        feedback.textContent=
-        "Các biểu hiện được đánh giá ở mức thấp. Bạn có thể tiếp tục tập trung vào nhiệm vụ và kết quả thực tế.";
+data[today()].fake=score;
 
-    }
-    else if(score<=35){
+save();
 
-        level.textContent="Mức độ trung bình";
 
-        level.style.color="#f59e0b";
+document.getElementById("score")
+.textContent=score+"/50";
 
-        feedback.textContent=
-        "Một số biểu hiện của nỗ lực ảo xuất hiện. Hãy thử giảm các hoạt động chuẩn bị không cần thiết và tăng thời gian thực hành.";
 
-    }
-    else{
+const level=document.getElementById("level");
 
-        level.textContent="Mức độ cao";
+const feedback=document.getElementById("feedback");
 
-        level.style.color="#ef4444";
 
-        feedback.textContent=
-        "Nhiều biểu hiện được ghi nhận. Hãy thử chuyển trọng tâm từ cảm giác bận rộn sang những nhiệm vụ có kết quả kiểm tra được.";
+if(score<=20){
 
-    }
+level.textContent="Mức độ thấp";
 
-    document.getElementById("quizResult").style.display="block";
+level.style.color="#10b981";
 
-    toast("Đã lưu kết quả!");
+feedback.textContent=
+"Các biểu hiện được đánh giá ở mức thấp. Bạn có thể tiếp tục tập trung vào nhiệm vụ và kết quả thực tế.";
+
+}
+
+else if(score<=35){
+
+level.textContent="Mức độ trung bình";
+
+level.style.color="#f59e0b";
+
+feedback.textContent=
+"Một số biểu hiện của nỗ lực ảo xuất hiện. Hãy thử giảm các hoạt động chuẩn bị không cần thiết và tăng thời gian thực hành.";
+
+}
+
+else{
+
+level.textContent="Mức độ cao";
+
+level.style.color="#ef4444";
+
+feedback.textContent=
+"Nhiều biểu hiện được ghi nhận. Hãy thử chuyển trọng tâm từ cảm giác bận rộn sang những nhiệm vụ có kết quả kiểm tra được.";
+
+}
+
+
+document.getElementById("quizResult")
+.style.display="block";
+
+
+toast("Đã lưu kết quả!");
 
 });
 
 
-/* VIDEO */
 
-["tiktok","shorts","reels"].forEach(id=>{
+/* ================= VIDEO ================= */
 
-    document.getElementById(id).addEventListener(
-        "input",
-        updateVideo
-    );
+["tiktok","shorts","reels"]
+.forEach(id=>{
+
+document.getElementById(id)
+.addEventListener("input",updateVideo);
 
 });
+
 
 function updateVideo(){
 
-    const total=
+const total=
 
-    Number(document.getElementById("tiktok").value||0)+
+Number(document.getElementById("tiktok").value||0)+
 
-    Number(document.getElementById("shorts").value||0)+
+Number(document.getElementById("shorts").value||0)+
 
-    Number(document.getElementById("reels").value||0);
+Number(document.getElementById("reels").value||0);
 
-    document.getElementById("videoTotal")
-        .textContent=total;
 
-    const level=document.getElementById("videoLevel");
+document.getElementById("videoTotal")
+.textContent=total;
 
-    if(total<=60){
 
-        level.textContent="Mức sử dụng: thấp";
+const level=document.getElementById("videoLevel");
 
-        level.style.color="#10b981";
 
-    }
-    else if(total<=120){
+if(total<=60){
 
-        level.textContent="Mức sử dụng: trung bình";
+level.textContent="Mức sử dụng: thấp";
 
-        level.style.color="#f59e0b";
-
-    }
-    else if(total<=180){
-
-        level.textContent="Mức sử dụng: cao";
-
-        level.style.color="#d97706";
-
-    }
-    else{
-
-        level.textContent="Mức sử dụng: rất cao";
-
-        level.style.color="#ef4444";
-
-    }
+level.style.color="#10b981";
 
 }
+
+else if(total<=120){
+
+level.textContent="Mức sử dụng: trung bình";
+
+level.style.color="#f59e0b";
+
+}
+
+else if(total<=180){
+
+level.textContent="Mức sử dụng: cao";
+
+level.style.color="#d97706";
+
+}
+
+else{
+
+level.textContent="Mức sử dụng: rất cao";
+
+level.style.color="#ef4444";
+
+}
+
+}
+
 
 function saveVideo(){
 
-    if(!data[today()])data[today()]={};
+if(!data[today()])
+data[today()]={};
 
-    const t=
 
-    Number(document.getElementById("tiktok").value||0)+
-    Number(document.getElementById("shorts").value||0)+
-    Number(document.getElementById("reels").value||0);
+const tiktok=
+Number(document.getElementById("tiktok").value||0);
 
-    data[today()].video=t;
+const shorts=
+Number(document.getElementById("shorts").value||0);
 
-    save();
+const reels=
+Number(document.getElementById("reels").value||0);
 
-    toast("Đã lưu thời gian sử dụng!");
+
+data[today()].tiktok=tiktok;
+
+data[today()].shorts=shorts;
+
+data[today()].reels=reels;
+
+data[today()].video=
+tiktok+shorts+reels;
+
+
+save();
+
+toast("Đã lưu thời gian sử dụng!");
 
 }
+
 
 function loadVideo(){
 
-    const d=data[today()]||{};
+const d=data[today()]||{};
 
-    const total=d.video||0;
 
-    document.getElementById("tiktok").value=
-    d.tiktok||0;
+document.getElementById("tiktok").value=
+d.tiktok||0;
 
-    document.getElementById("shorts").value=
-    d.shorts||0;
+document.getElementById("shorts").value=
+d.shorts||0;
 
-    document.getElementById("reels").value=
-    d.reels||0;
+document.getElementById("reels").value=
+d.reels||0;
 
-    updateVideo();
+
+updateVideo();
 
 }
 
 
-/* STUDY */
+
+/* ================= STUDY ================= */
 
 ["done1","done2","done3","task1","task2","task3"]
 .forEach(id=>{
 
-    document.getElementById(id).addEventListener(
-        "input",
-        updateRate
-    );
+document.getElementById(id)
+.addEventListener("input",updateRate);
 
 });
 
+
 function updateRate(){
 
-    let total=0;
-    let done=0;
+let total=0;
 
-    for(let i=1;i<=3;i++){
+let done=0;
 
-        const name=
-        document.getElementById("task"+i).value.trim();
 
-        const checked=
-        document.getElementById("done"+i).checked;
+for(let i=1;i<=3;i++){
 
-        if(name){
+const name=
+document.getElementById("task"+i)
+.value.trim();
 
-            total++;
+const checked=
+document.getElementById("done"+i)
+.checked;
 
-            if(checked)done++;
 
-        }
+if(name){
 
-    }
+total++;
 
-    const rate=
-    total?Math.round(done/total*100):0;
-
-    document.getElementById("rate")
-        .textContent=rate+"%";
-
-    document.getElementById("progressBar")
-        .style.width=rate+"%";
+if(checked)
+done++;
 
 }
+
+}
+
+
+const rate=
+total?
+Math.round(done/total*100):
+0;
+
+
+document.getElementById("rate")
+.textContent=rate+"%";
+
+
+document.getElementById("progressBar")
+.style.width=rate+"%";
+
+}
+
 
 function saveStudy(){
 
-    let tasks=[];
-    let done=0;
+let tasks=[];
 
-    for(let i=1;i<=3;i++){
+let done=0;
 
-        const name=
-        document.getElementById("task"+i).value.trim();
 
-        const checked=
-        document.getElementById("done"+i).checked;
+for(let i=1;i<=3;i++){
 
-        if(name){
+const name=
+document.getElementById("task"+i)
+.value.trim();
 
-            tasks.push({
-                name:name,
-                done:checked
-            });
+const checked=
+document.getElementById("done"+i)
+.checked;
 
-            if(checked)done++;
 
-        }
+if(name){
 
-    }
+tasks.push({
+name:name,
+done:checked
+});
 
-    const rate=
-    tasks.length?
-    Math.round(done/tasks.length*100):0;
 
-    if(!data[today()])data[today()]={};
-
-    data[today()].study=rate;
-
-    data[today()].time=
-    Number(document.getElementById("studyTime").value||0);
-
-    save();
-
-    toast("Đã lưu tiến độ học!");
+if(checked)
+done++;
 
 }
+
+}
+
+
+const rate=
+tasks.length?
+Math.round(done/tasks.length*100):
+0;
+
+
+if(!data[today()])
+data[today()]={};
+
+
+data[today()].study=rate;
+
+data[today()].time=
+Number(
+document.getElementById("studyTime")
+.value||0
+);
+
+
+data[today()].tasks=tasks;
+
+
+save();
+
+toast("Đã lưu tiến độ học!");
+
+}
+
 
 function loadStudy(){
 
-    const d=data[today()]||{};
+const d=data[today()]||{};
 
-    document.getElementById("studyTime").value=
-    d.time||0;
+document.getElementById("studyTime")
+.value=d.time||0;
 
 }
 
 
-/* PROGRESS */
+
+/* ================= PROGRESS ================= */
 
 function renderProgress(){
 
-    const keys=Object.keys(data).sort();
-
-    if(!keys.length){
-
-        document.getElementById("statFake").textContent="-";
-        document.getElementById("statVideo").textContent="-";
-        document.getElementById("statStudy").textContent="-";
-
-        document.getElementById("history").innerHTML="";
-
-        document.getElementById("chart").innerHTML="";
-
-        return;
-
-    }
-
-    const latest=data[keys[keys.length-1]];
-
-    document.getElementById("statFake").textContent=
-    latest.fake?latest.fake+"/50":"-";
-
-    document.getElementById("statVideo").textContent=
-    latest.video||0;
-
-    document.getElementById("statStudy").textContent=
-    (latest.study||0)+"%";
+const keys=Object.keys(data).sort();
 
 
-    const history=document.getElementById("history");
+if(!keys.length){
 
-    history.innerHTML="";
+document.getElementById("statFake")
+.textContent="-";
 
-    keys.slice(-30).reverse().forEach(date=>{
+document.getElementById("statVideo")
+.textContent="-";
 
-        const d=data[date];
+document.getElementById("statStudy")
+.textContent="-";
 
-        history.innerHTML+=`
+document.getElementById("history")
+.innerHTML="";
 
-        <tr>
+document.getElementById("chart")
+.innerHTML="";
 
-            <td>${date.split("-").reverse().join("/")}</td>
-
-            <td>${d.fake||"-"}</td>
-
-            <td>${d.video||0} phút</td>
-
-            <td>${d.study||0}%</td>
-
-            <td>${d.time||0} phút</td>
-
-        </tr>
-
-        `;
-
-    });
-
-
-    const chart=document.getElementById("chart");
-
-    chart.innerHTML="";
-
-    keys.slice(-7).forEach(date=>{
-
-        const d=data[date];
-
-        const group=document.createElement("div");
-
-        group.className="bar-group";
-
-        const fake=document.createElement("div");
-
-        fake.className="bar fake";
-
-        fake.style.height=
-        ((d.fake||0)/50*100)+"%";
-
-        fake.title="Nỗ lực ảo: "+(d.fake||0);
-
-        const real=document.createElement("div");
-
-        real.className="bar real";
-
-        real.style.height=
-        (d.study||0)+"%";
-
-        real.title="Học thật: "+(d.study||0)+"%";
-
-        group.appendChild(fake);
-
-        group.appendChild(real);
-
-        chart.appendChild(group);
-
-    });
+return;
 
 }
 
 
-/* CLEAR */
+const latest=
+data[keys[keys.length-1]];
+
+
+document.getElementById("statFake")
+.textContent=
+latest.fake?
+latest.fake+"/50":
+"-";
+
+
+document.getElementById("statVideo")
+.textContent=
+latest.video||0;
+
+
+document.getElementById("statStudy")
+.textContent=
+(latest.study||0)+"%";
+
+
+const history=
+document.getElementById("history");
+
+
+history.innerHTML="";
+
+
+keys.slice(-30)
+.reverse()
+.forEach(date=>{
+
+const d=data[date];
+
+
+history.innerHTML+=`
+
+<tr>
+
+<td>
+${date.split("-").reverse().join("/")}
+</td>
+
+<td>
+${d.fake||"-"}
+</td>
+
+<td>
+${d.video||0} phút
+</td>
+
+<td>
+${d.study||0}%
+</td>
+
+<td>
+${d.time||0} phút
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+const chart=
+document.getElementById("chart");
+
+
+chart.innerHTML="";
+
+
+keys.slice(-7)
+.forEach(date=>{
+
+const d=data[date];
+
+
+const group=
+document.createElement("div");
+
+group.className="bar-group";
+
+
+const fake=
+document.createElement("div");
+
+fake.className="bar fake";
+
+fake.style.height=
+((d.fake||0)/50*100)+"%";
+
+fake.title=
+"Nỗ lực ảo: "+(d.fake||0);
+
+
+const real=
+document.createElement("div");
+
+real.className="bar real";
+
+real.style.height=
+(d.study||0)+"%";
+
+real.title=
+"Học thật: "+(d.study||0)+"%";
+
+
+group.appendChild(fake);
+
+group.appendChild(real);
+
+chart.appendChild(group);
+
+});
+
+}
+
+
+
+/* ================= XÓA DỮ LIỆU ================= */
 
 function clearData(){
 
-    if(confirm(
-        "Bạn chắc chắn muốn xóa toàn bộ dữ liệu?"
-    )){
+if(confirm(
+"Bạn chắc chắn muốn xóa toàn bộ dữ liệu?"
+)){
 
-        localStorage.removeItem(KEY);
+localStorage.removeItem(KEY);
 
-        data={};
+data={};
 
-        renderProgress();
+renderProgress();
 
-        toast("Đã xóa dữ liệu!");
+toast("Đã xóa dữ liệu!");
 
-    }
+}
 
 }
 
 
-/* START */
+
+/* ================= START ================= */
 
 renderQuestions();
 
