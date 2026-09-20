@@ -157,8 +157,8 @@ main{
 }
 
 .hero h1{
-    font-size:clamp(38px,7vw,68px);
-    line-height:1;
+    font-size:clamp(36px,6.5vw,62px);
+    line-height:1.1;
     margin:15px 0;
     position:relative;
     z-index:1;
@@ -679,14 +679,14 @@ Tiến bộ
 <small>STUDY REALITY PROJECT</small>
 
 <h1>
-HỌC HIỆU QUẢ.<br>
-<span>KHÔNG CHỈ HỌC NHIỀU.</span>
+HỌC THÔNG MINH.<br>
+<span>TẠO KẾT QUẢ THẬT.</span>
 </h1>
 
 <p>
-HỌC THẬT là sản phẩm hỗ trợ học sinh nhận diện sự khác biệt
-giữa <b>cảm giác đang học</b> và <b>kết quả học tập thực tế</b>,
-đồng thời theo dõi thói quen sử dụng nội dung ngắn.
+Bớt cảm giác bận rộn. HỌC THẬT giúp học sinh nhận diện sự khác biệt
+giữa <b>cảm giác mình đang học nhiều</b> và <b>kết quả học tập thực tế</b>,
+từ đó chọn phương pháp học phù hợp và làm chủ thời gian.
 </p>
 
 <button class="btn btn-green" onclick="go('quiz')">
@@ -815,11 +815,8 @@ không phải công cụ chẩn đoán tâm lý.
 
 <div id="questions"></div>
 
-<button class="btn btn-primary"
-style="width:100%;margin-top:20px">
-
+<button class="btn btn-primary" style="width:100%;margin-top:20px">
 Xem kết quả
-
 </button>
 
 </form>
@@ -833,7 +830,7 @@ Xem kết quả
 0/50
 </div>
 
-<h3 id="level"></h3>
+<h3 id="level" style="margin:10px 0"></h3>
 
 <p id="feedback"></p>
 
@@ -875,12 +872,7 @@ không nhằm gắn nhãn hay chẩn đoán người dùng.
 
 <label>TikTok — phút</label>
 
-<input
-type="number"
-id="tiktok"
-min="0"
-value="0"
->
+<input type="number" id="tiktok" min="0" value="0">
 
 </div>
 
@@ -889,12 +881,7 @@ value="0"
 
 <label>YouTube Shorts — phút</label>
 
-<input
-type="number"
-id="shorts"
-min="0"
-value="0"
->
+<input type="number" id="shorts" min="0" value="0">
 
 </div>
 
@@ -903,19 +890,12 @@ value="0"
 
 <label>Instagram Reels — phút</label>
 
-<input
-type="number"
-id="reels"
-min="0"
-value="0"
->
+<input type="number" id="reels" min="0" value="0">
 
 </div>
 
 
-<div
-style="background:#f8fafc;padding:25px;border-radius:15px;text-align:center;margin:20px 0"
->
+<div style="background:#f8fafc;padding:25px;border-radius:15px;text-align:center;margin:20px 0">
 
 <div style="color:#64748b">
 Tổng thời gian nội dung ngắn
@@ -929,19 +909,13 @@ Tổng thời gian nội dung ngắn
 phút / ngày
 </div>
 
-<strong id="videoLevel"></strong>
+<strong id="videoLevel" style="display:block;margin-top:8px"></strong>
 
 </div>
 
 
-<button
-class="btn btn-primary"
-onclick="saveVideo()"
-style="width:100%"
->
-
+<button class="btn btn-primary" onclick="saveVideo()" style="width:100%">
 Lưu dữ liệu hôm nay
-
 </button>
 
 </div>
@@ -972,11 +946,7 @@ Hãy biến nó thành một nhiệm vụ có thể kiểm tra được.
 
 <input type="checkbox" id="done1">
 
-<input
-type="text"
-id="task1"
-placeholder="Ví dụ: Làm 20 bài Toán"
->
+<input type="text" id="task1" placeholder="Ví dụ: Làm 20 bài tập Toán">
 
 </div>
 
@@ -985,11 +955,7 @@ placeholder="Ví dụ: Làm 20 bài Toán"
 
 <input type="checkbox" id="done2">
 
-<input
-type="text"
-id="task2"
-placeholder="Ví dụ: Học 20 từ vựng"
->
+<input type="text" id="task2" placeholder="Ví dụ: Học 20 từ vựng tiếng Anh / tiếng Trung">
 
 </div>
 
@@ -998,11 +964,7 @@ placeholder="Ví dụ: Học 20 từ vựng"
 
 <input type="checkbox" id="done3">
 
-<input
-type="text"
-id="task3"
-placeholder="Ví dụ: Viết 1 đoạn văn"
->
+<input type="text" id="task3" placeholder="Ví dụ: Lập dàn ý và viết 1 đoạn văn">
 
 </div>
 
@@ -1013,12 +975,7 @@ placeholder="Ví dụ: Viết 1 đoạn văn"
 Thời gian học tập trung thực tế — phút
 </label>
 
-<input
-type="number"
-id="studyTime"
-min="0"
-value="0"
->
+<input type="number" id="studyTime" min="0" value="0">
 
 </div>
 
@@ -1034,22 +991,13 @@ value="0"
 
 <div class="progress">
 
-<div
-class="progress-bar"
-id="progressBar">
-</div>
+<div class="progress-bar" id="progressBar"></div>
 
 </div>
 
 
-<button
-class="btn btn-green"
-onclick="saveStudy()"
-style="width:100%;margin-top:20px"
->
-
+<button class="btn btn-green" onclick="saveStudy()" style="width:100%;margin-top:20px">
 Lưu kết quả hôm nay
-
 </button>
 
 </div>
@@ -1064,10 +1012,10 @@ Lưu kết quả hôm nay
 
 <div class="page-title">
 
-<h2>📖 Phương pháp học</h2>
+<h2>📖 Tổng hợp Phương pháp học hiệu quả</h2>
 
 <p>
-Một số phương pháp học phổ biến, đơn giản và dễ áp dụng.
+Những phương pháp học tập khoa học, cực kỳ đơn giản và dễ áp dụng cho học sinh.
 </p>
 
 </div>
@@ -1075,9 +1023,7 @@ Một số phương pháp học phổ biến, đơn giản và dễ áp dụng.
 
 <div class="notice">
 
-<b>Không có một phương pháp phù hợp với tất cả mọi người.</b>
-Hãy thử nghiệm và theo dõi xem phương pháp nào giúp bạn
-tập trung và hoàn thành nhiệm vụ tốt hơn.
+<b>Lưu ý quan trọng:</b> Không có một phương pháp nào hoàn hảo cho tất cả mọi môn học. Hãy thử nghiệm để chọn ra phương pháp giúp bạn tập trung cao nhất và đạt kết quả thực tế tốt nhất.
 
 </div>
 
@@ -1085,20 +1031,18 @@ tập trung và hoàn thành nhiệm vụ tốt hơn.
 <div class="grid">
 
 
-<!-- POMODORO -->
+<!-- POMODORO 25/5 -->
 
 <div class="method-card">
 
 <span class="method-tag">
-TẬP TRUNG
+CHỐNG TRÌ HOÃN
 </span>
 
 <h3>🍅 Pomodoro 25/5</h3>
 
 <p>
-Học tập trung trong <b>25 phút</b>,
-sau đó nghỉ <b>5 phút</b>.
-Sau mỗi chu kỳ, tiếp tục một phiên học mới.
+Chia nhỏ thời gian: Học tập trung cao độ trong <b>25 phút</b>, sau đó nghỉ ngắn <b>5 phút</b>. Mỗi 4 phiên học thì nghỉ dài 15-20 phút.
 </p>
 
 <span class="method-time">
@@ -1107,12 +1051,9 @@ Sau mỗi chu kỳ, tiếp tục một phiên học mới.
 
 <div class="method-example">
 
-<b>Ví dụ:</b><br>
+<b>Ví dụ áp dụng:</b><br>
 
-25 phút làm bài Toán →
-5 phút nghỉ →
-25 phút học tiếng Trung →
-5 phút nghỉ.
+25 phút giải bài tập Toán → Nghỉ 5 phút vươn vai → 25 phút đọc bài Lịch sử.
 
 </div>
 
@@ -1125,15 +1066,13 @@ Sau mỗi chu kỳ, tiếp tục một phiên học mới.
 <div class="method-card">
 
 <span class="method-tag">
-TẬP TRUNG SÂU
+TẬP TRUNG SÂU (DEEP WORK)
 </span>
 
-<h3>⏱ 50/10</h3>
+<h3>⏱ Phương pháp 50/10</h3>
 
 <p>
-Học tập trung <b>50 phút</b> rồi nghỉ
-<b>10 phút</b>. Phù hợp với nhiệm vụ
-cần thời gian tập trung lâu hơn.
+Học liên tục <b>50 phút</b> rồi nghỉ <b>10 phút</b>. Phù hợp với các môn cần tư duy logic sâu hoặc viết lách kéo dài mà không bị đứt đoạn tư duy.
 </p>
 
 <span class="method-time">
@@ -1142,11 +1081,9 @@ cần thời gian tập trung lâu hơn.
 
 <div class="method-example">
 
-<b>Ví dụ:</b><br>
+<b>Ví dụ áp dụng:</b><br>
 
-50 phút ôn một chương Sinh học →
-10 phút nghỉ →
-tiếp tục phần tiếp theo.
+50 phút viết bài Văn hoặc luyện đề thi thử → Nghỉ 10 phút uống nước, thư giãn mắt.
 
 </div>
 
@@ -1159,28 +1096,24 @@ tiếp tục phần tiếp theo.
 <div class="method-card">
 
 <span class="method-tag">
-GHI NHỚ
+GHI NHỚ LÂU
 </span>
 
-<h3>🧠 Active Recall</h3>
+<h3>🧠 Active Recall (Gợi nhớ chủ động)</h3>
 
 <p>
-Thay vì chỉ đọc lại tài liệu,
-hãy <b>tự nhớ và tự trả lời câu hỏi</b>
-mà không nhìn đáp án.
+Thay vì đọc đi đọc lại tài liệu (dễ tạo cảm giác thuộc bài giả tạo), hãy <b>gập sách lại và tự hỏi — tự trả lời</b> hoặc tự viết lại kiến thức ra giấy.
 </p>
 
 <span class="method-time">
-Đọc → Đóng tài liệu → Tự nhớ
+Đọc 1 lần → Đóng sách → Tự nhớ & Viết ra
 </span>
 
 <div class="method-example">
 
-<b>Ví dụ:</b><br>
+<b>Ví dụ áp dụng:</b><br>
 
-Học từ vựng tiếng Trung →
-đóng sách →
-tự viết lại nghĩa và cách đọc.
+Đọc xong công thức Vật lý → Đóng lại tự viết lại công thức và giải thích các đại lượng.
 
 </div>
 
@@ -1193,28 +1126,24 @@ tự viết lại nghĩa và cách đọc.
 <div class="method-card">
 
 <span class="method-tag">
-ÔN TẬP
+CHỐNG QUÊN
 </span>
 
-<h3>🔁 Spaced Repetition</h3>
+<h3>🔁 Spaced Repetition (Lặp lại ngắt quãng)</h3>
 
 <p>
-Ôn lại kiến thức theo những khoảng thời gian
-cách nhau thay vì học tất cả trong một lần.
+Ôn lại bài học theo những khoảng thời gian tăng dần (Ngay sau 1 ngày → 3 ngày → 7 ngày → 30 ngày) để đưa kiến thức vào bộ nhớ dài hạn.
 </p>
 
 <span class="method-time">
-Học → Ôn → Giãn cách → Ôn lại
+Học → Ôn sau 1 ngày → Ôn sau 1 tuần
 </span>
 
 <div class="method-example">
 
-<b>Ví dụ:</b><br>
+<b>Ví dụ áp dụng:</b><br>
 
-Học hôm nay →
-ôn ngày mai →
-ôn lại sau vài ngày →
-ôn lại sau một tuần.
+Học từ vựng hôm nay → Ôn lại vào tối mai → Ôn lại vào cuối tuần → Ôn lại trước kỳ thi.
 
 </div>
 
@@ -1227,28 +1156,118 @@ Học hôm nay →
 <div class="method-card">
 
 <span class="method-tag">
-HIỂU BÀI
+HIỂU BẢN CHẤT
 </span>
 
-<h3>👨‍🏫 Feynman</h3>
+<h3>👨‍🏫 Phương pháp Feynman</h3>
 
 <p>
-Học một kiến thức rồi thử
-<b>giải thích lại bằng ngôn ngữ đơn giản</b>
-như đang dạy cho một người khác.
+Thử <b>giải thích lại bài học bằng ngôn ngữ cực kỳ đơn giản</b> như đang dạy lại cho một người chưa biết gì (hoặc em nhỏ). Chỗ nào bị ngắc ngứ chính là chỗ bạn chưa hiểu rõ.
 </p>
 
 <span class="method-time">
-Học → Giải thích → Phát hiện chỗ chưa hiểu
+Học bài → Giải thích lại → Xem lại chỗ hổng
 </span>
 
 <div class="method-example">
 
-<b>Ví dụ:</b><br>
+<b>Ví dụ áp dụng:</b><br>
 
-Sau khi học một định luật Vật lý,
-thử giải thích nó bằng vài câu
-mà không dùng thuật ngữ phức tạp.
+Giải thích hiện tượng quang hợp hoặc một quy luật Sinh học bằng lời nói của chính bạn mà không dùng từ ngữ rườm rà.
+
+</div>
+
+</div>
+
+
+
+<!-- BLURTING METHOD -->
+
+<div class="method-card">
+
+<span class="method-tag">
+ÔN THI CẤP TỐC
+</span>
+
+<h3>📝 Blurting Method (Xả kiến thức)</h3>
+
+<p>
+Đọc qua một chương sách → Lấy một tờ giấy trắng và <b>viết ra tất cả những gì bạn nhớ được</b> → Dùng bút đỏ dò lại sách để thấy ngay phần bị sót/sai.
+</p>
+
+<span class="method-time">
+Đọc → Viết hết ra giấy trắng → Dò đáp án
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Viết toàn bộ các mốc sự kiện Lịch sử ra tờ giấy A4, sau đó mở sách kiểm tra xem sót sự kiện nào.
+
+</div>
+
+</div>
+
+
+
+<!-- CORNELL NOTE-TAKING -->
+
+<div class="method-card">
+
+<span class="method-tag">
+GHI CHÉP THÔNG MINH
+</span>
+
+<h3>📑 Phương pháp Cornell</h3>
+
+<p>
+Chia trang vở làm 3 phần: **Cột trái** (Từ khóa / Câu hỏi), **Cột phải** (Nội dung ghi chép chính), **Hàng dưới cùng** (Tóm tắt ngắn 2-3 câu).
+</p>
+
+<span class="method-time">
+Chia 3 phần → Ghi chép → Tóm tắt
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Ghi bài trên lớp ở cột phải, tối về điền câu hỏi ở cột trái và tóm tắt lại ở hàng cuối.
+
+</div>
+
+</div>
+
+
+
+<!-- EISENHOWER MATRIX -->
+
+<div class="method-card">
+
+<span class="method-tag">
+QUẢN LÝ BÀI TẬP
+</span>
+
+<h3>🎯 Ma trận Eisenhower</h3>
+
+<p>
+Phân loại bài tập thành 4 nhóm để không bị ngợp:
+1. **Gấp & Quan trọng** (Làm ngay)
+2. **Quan trọng nhưng Không gấp** (Lên lịch làm)
+3. **Gấp nhưng Không quan trọng** (Làm nhanh)
+4. **Không gấp & Không quan trọng** (Bỏ qua)
+</p>
+
+<span class="method-time">
+Lập danh sách → Phân loại → Thực hiện
+</span>
+
+<div class="method-example">
+
+<b>Ví dụ áp dụng:</b><br>
+
+Bài tập về nhà mai nộp → Làm ngay. Ôn thi học kỳ tháng sau → Lên kế hoạch mỗi ngày 30 phút.
 
 </div>
 
@@ -1261,29 +1280,24 @@ mà không dùng thuật ngữ phức tạp.
 <div class="method-card">
 
 <span class="method-tag">
-ĐỌC HIỂU
+ĐỌC HIỂU TÀI LIỆU
 </span>
 
-<h3>📚 SQ3R</h3>
+<h3>📚 Phương pháp SQ3R</h3>
 
 <p>
-Một cách đọc tài liệu có hệ thống:
-<b>Survey → Question → Read → Recall → Review</b>.
+Quy trình đọc sách hiệu quả gồm 5 bước: <b>Survey</b> (Xem trước) → <b>Question</b> (Đặt câu hỏi) → <b>Read</b> (Đọc) → <b>Recite</b> (Nhẩm lại) → <b>Review</b> (Ôn tập).
 </p>
 
 <span class="method-time">
-Xem trước → Hỏi → Đọc → Nhớ → Ôn
+Lướt → Hỏi → Đọc → Nhớ → Ôn
 </span>
 
 <div class="method-example">
 
-<b>Ví dụ:</b><br>
+<b>Ví dụ áp dụng:</b><br>
 
-Xem tiêu đề chương →
-đặt câu hỏi →
-đọc nội dung →
-tự nói lại →
-ôn những ý chính.
+Đọc tiêu đề & mục lục bài Địa lý → Đặt câu hỏi bài này nói về gì? → Đọc nội dung → Tự trả lời.
 
 </div>
 
@@ -1294,40 +1308,29 @@ tự nói lại →
 
 <div class="card" style="margin-top:20px">
 
-<h3>💡 Chọn phương pháp nào?</h3>
+<h3>💡 Hướng dẫn nhanh: Nên chọn phương pháp nào?</h3>
 
 <p style="margin-top:10px">
 
-Nếu bạn dễ mất tập trung,
-có thể thử <b>Pomodoro 25/5</b>.
+• Hay bị xao nhãng, trì hoãn: Dùng <b>Pomodoro 25/5</b> hoặc <b>Blurting Method</b>.
 
 </p>
 
 <p style="margin-top:8px">
 
-Nếu cần ghi nhớ kiến thức,
-thử <b>Active Recall + Spaced Repetition</b>.
+• Học các môn học thuộc (Anh, Trung, Sử, Địa, Sinh): Dùng <b>Active Recall + Spaced Repetition</b>.
 
 </p>
 
 <p style="margin-top:8px">
 
-Nếu cần hiểu sâu một khái niệm,
-thử <b>Feynman</b>.
+• Gặp bài khó, môn tự nhiên (Toán, Lý, Hóa): Dùng <b>Feynman</b> để hiểu bản chất.
 
 </p>
 
 <p style="margin-top:8px">
 
-Nếu đang đọc một chương sách dài,
-có thể thử <b>SQ3R</b>.
-
-</p>
-
-<p style="margin-top:12px">
-
-Quan trọng nhất là thử nghiệm và theo dõi
-xem phương pháp nào thực sự phù hợp với bạn.
+• Có quá nhiều bài tập không biết làm từ đâu: Dùng <b>Ma trận Eisenhower</b> để sắp xếp thứ tự.
 
 </p>
 
@@ -1356,39 +1359,27 @@ Dữ liệu được lưu trực tiếp trên thiết bị của bạn.
 
 <div class="stat">
 
-<div class="stat-value" id="statFake">
--
-</div>
+<div class="stat-value" id="statFake">-</div>
 
-<div class="stat-label">
-Nỗ lực ảo
-</div>
+<div class="stat-label">Nỗ lực ảo (Điểm TB)</div>
 
 </div>
 
 
 <div class="stat">
 
-<div class="stat-value" id="statVideo">
--
-</div>
+<div class="stat-value" id="statVideo">-</div>
 
-<div class="stat-label">
-Video ngắn / phút
-</div>
+<div class="stat-label">Video ngắn (Phút/Ngày)</div>
 
 </div>
 
 
 <div class="stat">
 
-<div class="stat-value" id="statStudy">
--
-</div>
+<div class="stat-value" id="statStudy">-</div>
 
-<div class="stat-label">
-Hoàn thành nhiệm vụ
-</div>
+<div class="stat-label">Hoàn thành bài tập (%)</div>
 
 </div>
 
@@ -1397,36 +1388,29 @@ Hoàn thành nhiệm vụ
 
 <div class="card">
 
-<h3>Xu hướng 7 ngày</h3>
+<h3>Xu hướng 7 ngày gần nhất</h3>
 
-<p style="font-size:13px">
+<p style="font-size:13px;margin-top:5px">
 
-<span style="color:#2563eb">
-■
-</span>
-Nỗ lực ảo
+<span style="color:#2563eb">■</span> Điểm Nỗ lực ảo
 
 &nbsp;&nbsp;
 
-<span style="color:#10b981">
-■
-</span>
-Học thật
+<span style="color:#10b981">■</span> Tỷ lệ Học thật (%)
 
 </p>
 
 
-<div class="chart" id="chart">
-</div>
+<div class="chart" id="chart"></div>
 
 </div>
 
 
-<div class="card">
+<div class="card" style="margin-top:20px">
 
-<h3>Lịch sử</h3>
+<h3>Lịch sử ghi nhận</h3>
 
-<div class="table-wrap">
+<div class="table-wrap" style="margin-top:10px">
 
 <table>
 
@@ -1438,7 +1422,7 @@ Học thật
 
 <th>Nỗ lực ảo</th>
 
-<th>Video</th>
+<th>Video ngắn</th>
 
 <th>Học thật</th>
 
@@ -1448,8 +1432,7 @@ Học thật
 
 </thead>
 
-<tbody id="history">
-</tbody>
+<tbody id="history"></tbody>
 
 </table>
 
@@ -1458,24 +1441,16 @@ Học thật
 </div>
 
 
-<div class="card" style="border-color:#fecaca">
+<div class="card" style="border-color:#fecaca;margin-top:20px">
 
-<h3 style="color:#dc2626">
-Xóa dữ liệu
-</h3>
+<h3 style="color:#dc2626">Xóa dữ liệu</h3>
 
-<p>
-Tất cả dữ liệu của sản phẩm được lưu bằng LocalStorage
-trên trình duyệt.
+<p style="margin:8px 0 15px;font-size:14px;color:var(--muted)">
+Tất cả dữ liệu được lưu cục bộ trên trình duyệt thiết bị của bạn.
 </p>
 
-<button
-class="btn btn-danger"
-onclick="clearData()"
->
-
+<button class="btn btn-danger" onclick="clearData()">
 Xóa toàn bộ dữ liệu
-
 </button>
 
 </div>
@@ -1492,8 +1467,7 @@ Xóa toàn bộ dữ liệu
 
 <br><br>
 
-Sản phẩm hỗ trợ nghiên cứu về thói quen học tập,
-nỗ lực ảo và việc sử dụng nội dung ngắn ở học sinh.
+Sản phẩm hỗ trợ nghiên cứu về thói quen học tập, nỗ lực ảo và việc sử dụng nội dung ngắn ở học sinh.
 
 <br><br>
 
@@ -1638,6 +1612,8 @@ function renderQuestions(){
 
 const box=document.getElementById("questions");
 
+if(!box) return;
+
 box.innerHTML=questions.map((q,i)=>`
 
 <div class="question">
@@ -1715,12 +1691,13 @@ score+=Number(selected.value);
 
 }
 
+const t=today();
 
-if(!data[today()])
-data[today()]={};
+if(!data[t])
+data[t]={};
 
 
-data[today()].fake=score;
+data[t].fake=score;
 
 save();
 
@@ -1736,454 +1713,351 @@ const feedback=document.getElementById("feedback");
 
 if(score<=20){
 
-level.textContent="Mức độ thấp";
+level.textContent="Mức độ Nỗ lực ảo: THẤP";
 
-level.style.color="#10b981";
+level.style.color="var(--green)";
 
-feedback.textContent=
-"Các biểu hiện được đánh giá ở mức thấp. Bạn có thể tiếp tục tập trung vào nhiệm vụ và kết quả thực tế.";
+feedback.textContent="Chúc mừng! Bạn có thói quen học tập thực tế tốt và tập trung vào kết quả.";
 
-}
+}else if(score<=35){
 
-else if(score<=35){
+level.textContent="Mức độ Nỗ lực ảo: TRUNG BÌNH";
 
-level.textContent="Mức độ trung bình";
+level.style.color="var(--orange)";
 
-level.style.color="#f59e0b";
+feedback.textContent="Bạn có dấu hiệu rơi vào cảm giác 'đang học' nhiều hơn là hoàn thành bài tập thực tế. Hãy chọn 1 phương pháp học tập trung để cải thiện.";
 
-feedback.textContent=
-"Một số biểu hiện của nỗ lực ảo xuất hiện. Hãy thử giảm các hoạt động chuẩn bị không cần thiết và tăng thời gian thực hành.";
+}else{
 
-}
+level.textContent="Mức độ Nỗ lực ảo: CAO";
 
-else{
+level.style.color="var(--red)";
 
-level.textContent="Mức độ cao";
-
-level.style.color="#ef4444";
-
-feedback.textContent=
-"Nhiều biểu hiện được ghi nhận. Hãy thử chuyển trọng tâm từ cảm giác bận rộn sang những nhiệm vụ có kết quả kiểm tra được.";
+feedback.textContent="Cảnh báo! Bạn đang dành rất nhiều thời gian cho các việc chuẩn bị hoặc cảm giác bận rộn nhưng kết quả chưa như mong muốn. Hãy bắt đầu chia nhỏ bài tập ngay hôm nay.";
 
 }
 
 
-document.getElementById("quizResult")
-.style.display="block";
+document.getElementById("quizResult").style.display="block";
 
-
-toast("Đã lưu kết quả!");
+toast("Đã lưu kết quả đánh giá!");
 
 });
 
 
 
-/* ================= VIDEO ================= */
-
-["tiktok","shorts","reels"]
-.forEach(id=>{
-
-document.getElementById(id)
-.addEventListener("input",updateVideo);
-
-});
-
-
-function updateVideo(){
-
-const total=
-
-Number(document.getElementById("tiktok").value||0)+
-
-Number(document.getElementById("shorts").value||0)+
-
-Number(document.getElementById("reels").value||0);
-
-
-document.getElementById("videoTotal")
-.textContent=total;
-
-
-const level=document.getElementById("videoLevel");
-
-
-if(total<=60){
-
-level.textContent="Mức sử dụng: thấp";
-
-level.style.color="#10b981";
-
-}
-
-else if(total<=120){
-
-level.textContent="Mức sử dụng: trung bình";
-
-level.style.color="#f59e0b";
-
-}
-
-else if(total<=180){
-
-level.textContent="Mức sử dụng: cao";
-
-level.style.color="#d97706";
-
-}
-
-else{
-
-level.textContent="Mức sử dụng: rất cao";
-
-level.style.color="#ef4444";
-
-}
-
-}
-
+/* ================= BRAIN ROT ================= */
 
 function saveVideo(){
 
-if(!data[today()])
-data[today()]={};
+const tt=Number(document.getElementById("tiktok").value)||0;
+
+const sh=Number(document.getElementById("shorts").value)||0;
+
+const re=Number(document.getElementById("reels").value)||0;
+
+const total=tt+sh+re;
 
 
-const tiktok=
-Number(document.getElementById("tiktok").value||0);
+const t=today();
 
-const shorts=
-Number(document.getElementById("shorts").value||0);
-
-const reels=
-Number(document.getElementById("reels").value||0);
+if(!data[t])
+data[t]={};
 
 
-data[today()].tiktok=tiktok;
+data[t].tiktok=tt;
 
-data[today()].shorts=shorts;
+data[t].shorts=sh;
 
-data[today()].reels=reels;
+data[t].reels=re;
 
-data[today()].video=
-tiktok+shorts+reels;
-
+data[t].video=total;
 
 save();
 
-toast("Đã lưu thời gian sử dụng!");
+
+document.getElementById("videoTotal").textContent=total;
+
+updateVideoLevel(total);
+
+toast("Đã lưu thời gian video ngắn!");
+
+}
+
+
+function updateVideoLevel(total){
+
+const el=document.getElementById("videoLevel");
+
+if(total===0){
+
+el.textContent="Tuyệt vời! Bạn không sử dụng video ngắn hôm nay.";
+
+el.style.color="var(--green)";
+
+}else if(total<=60){
+
+el.textContent="Mức độ hợp lý (Dưới 1 tiếng / ngày).";
+
+el.style.color="var(--blue)";
+
+}else if(total<=120){
+
+el.textContent="Chú ý: Bạn đang tốn từ 1-2 tiếng cho nội dung ngắn.";
+
+el.style.color="var(--orange)";
+
+}else{
+
+el.textContent="Cảnh báo: Dành quá nhiều thời gian lướt video ngắn dễ gây xao nhãng!";
+
+el.style.color="var(--red)";
+
+}
 
 }
 
 
 function loadVideo(){
 
-const d=data[today()]||{};
+const t=today();
 
+const item=data[t]||{};
 
-document.getElementById("tiktok").value=
-d.tiktok||0;
+document.getElementById("tiktok").value=item.tiktok||0;
 
-document.getElementById("shorts").value=
-d.shorts||0;
+document.getElementById("shorts").value=item.shorts||0;
 
-document.getElementById("reels").value=
-d.reels||0;
+document.getElementById("reels").value=item.reels||0;
 
+const total=item.video||0;
 
-updateVideo();
+document.getElementById("videoTotal").textContent=total;
+
+updateVideoLevel(total);
 
 }
 
 
 
-/* ================= STUDY ================= */
+/* ================= HỌC THẬT ================= */
 
-["done1","done2","done3","task1","task2","task3"]
-.forEach(id=>{
+function updateStudyRate(){
 
-document.getElementById(id)
-.addEventListener("input",updateRate);
+const c1=document.getElementById("done1").checked?1:0;
+
+const c2=document.getElementById("done2").checked?1:0;
+
+const c3=document.getElementById("done3").checked?1:0;
+
+const count=c1+c2+c3;
+
+const rate=Math.round((count/3)*100);
+
+document.getElementById("rate").textContent=rate+"%";
+
+document.getElementById("progressBar").style.width=rate+"%";
+
+return {count,rate};
+
+}
+
+
+["done1","done2","done3"].forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(el)
+el.addEventListener("change",updateStudyRate);
 
 });
-
-
-function updateRate(){
-
-let total=0;
-
-let done=0;
-
-
-for(let i=1;i<=3;i++){
-
-const name=
-document.getElementById("task"+i)
-.value.trim();
-
-const checked=
-document.getElementById("done"+i)
-.checked;
-
-
-if(name){
-
-total++;
-
-if(checked)
-done++;
-
-}
-
-}
-
-
-const rate=
-total?
-Math.round(done/total*100):
-0;
-
-
-document.getElementById("rate")
-.textContent=rate+"%";
-
-
-document.getElementById("progressBar")
-.style.width=rate+"%";
-
-}
 
 
 function saveStudy(){
 
-let tasks=[];
+const t1=document.getElementById("task1").value;
 
-let done=0;
+const t2=document.getElementById("task2").value;
 
+const t3=document.getElementById("task3").value;
 
-for(let i=1;i<=3;i++){
+const st=Number(document.getElementById("studyTime").value)||0;
 
-const name=
-document.getElementById("task"+i)
-.value.trim();
-
-const checked=
-document.getElementById("done"+i)
-.checked;
+const {count,rate}=updateStudyRate();
 
 
-if(name){
+const t=today();
 
-tasks.push({
-name:name,
-done:checked
-});
+if(!data[t])
+data[t]={};
 
 
-if(checked)
-done++;
+data[t].tasks=[t1,t2,t3];
 
-}
+data[t].dones=[
 
-}
+document.getElementById("done1").checked,
 
+document.getElementById("done2").checked,
 
-const rate=
-tasks.length?
-Math.round(done/tasks.length*100):
-0;
+document.getElementById("done3").checked
 
+];
 
-if(!data[today()])
-data[today()]={};
+data[t].studyTime=st;
 
+data[t].rate=rate;
 
-data[today()].study=rate;
-
-data[today()].time=
-Number(
-document.getElementById("studyTime")
-.value||0
-);
-
-
-data[today()].tasks=tasks;
-
+data[t].completedTasks=count;
 
 save();
 
-toast("Đã lưu tiến độ học!");
+
+toast("Đã lưu kết quả học tập!");
 
 }
 
 
 function loadStudy(){
 
-const d=data[today()]||{};
+const t=today();
 
-document.getElementById("studyTime")
-.value=d.time||0;
+const item=data[t]||{};
+
+const tasks=item.tasks||["","",""];
+
+const dones=item.dones||[false,false,false];
+
+
+document.getElementById("task1").value=tasks[0]||"";
+
+document.getElementById("task2").value=tasks[1]||"";
+
+document.getElementById("task3").value=tasks[2]||"";
+
+
+document.getElementById("done1").checked=!!dones[0];
+
+document.getElementById("done2").checked=!!dones[1];
+
+document.getElementById("done3").checked=!!dones[2];
+
+
+document.getElementById("studyTime").value=item.studyTime||0;
+
+updateStudyRate();
 
 }
 
 
 
-/* ================= PROGRESS ================= */
+/* ================= TIẾN BỘ ================= */
 
 function renderProgress(){
 
-const keys=Object.keys(data).sort();
+const dates=Object.keys(data).sort().reverse();
+
+const history=document.getElementById("history");
+
+const chart=document.getElementById("chart");
 
 
-if(!keys.length){
+if(dates.length===0){
 
-document.getElementById("statFake")
-.textContent="-";
+document.getElementById("statFake").textContent="-";
 
-document.getElementById("statVideo")
-.textContent="-";
+document.getElementById("statVideo").textContent="-";
 
-document.getElementById("statStudy")
-.textContent="-";
+document.getElementById("statStudy").textContent="-";
 
-document.getElementById("history")
-.innerHTML="";
+history.innerHTML='<tr><td colspan="5" style="text-align:center;color:var(--muted)">Chưa có dữ liệu. Hãy thực hiện kiểm tra và lưu kết quả!</td></tr>';
 
-document.getElementById("chart")
-.innerHTML="";
+chart.innerHTML='<div style="margin:auto;color:var(--muted)">Chưa có dữ liệu biểu đồ</div>';
 
 return;
 
 }
 
 
-const latest=
-data[keys[keys.length-1]];
+let totalFake=0, countFake=0;
+
+let totalVid=0, countVid=0;
+
+let totalRate=0, countRate=0;
 
 
-document.getElementById("statFake")
-.textContent=
-latest.fake?
-latest.fake+"/50":
-"-";
+history.innerHTML=dates.map(d=>{
+
+const item=data[d];
+
+if(item.fake){ totalFake+=item.fake; countFake++; }
+
+if(item.video!==undefined){ totalVid+=item.video; countVid++; }
+
+if(item.rate!==undefined){ totalRate+=item.rate; countRate++; }
 
 
-document.getElementById("statVideo")
-.textContent=
-latest.video||0;
-
-
-document.getElementById("statStudy")
-.textContent=
-(latest.study||0)+"%";
-
-
-const history=
-document.getElementById("history");
-
-
-history.innerHTML="";
-
-
-keys.slice(-30)
-.reverse()
-.forEach(date=>{
-
-const d=data[date];
-
-
-history.innerHTML+=`
+return `
 
 <tr>
 
-<td>
-${date.split("-").reverse().join("/")}
-</td>
+<td><b>${d}</b></td>
 
-<td>
-${d.fake||"-"}
-</td>
+<td>${item.fake ? item.fake+'/50' : '-'}</td>
 
-<td>
-${d.video||0} phút
-</td>
+<td>${item.video!==undefined ? item.video+' phút' : '-'}</td>
 
-<td>
-${d.study||0}%
-</td>
+<td>${item.rate!==undefined ? item.rate+'%' : '-'}</td>
 
-<td>
-${d.time||0} phút
-</td>
+<td>${item.studyTime!==undefined ? item.studyTime+' phút' : '-'}</td>
 
 </tr>
 
 `;
 
-});
+}).join("");
 
 
-const chart=
-document.getElementById("chart");
+document.getElementById("statFake").textContent=countFake?Math.round(totalFake/countFake)+'/50':'-';
+
+document.getElementById("statVideo").textContent=countVid?Math.round(totalVid/countVid)+'p':'-';
+
+document.getElementById("statStudy").textContent=countRate?Math.round(totalRate/countRate)+'%':'-';
 
 
-chart.innerHTML="";
+// Biểu đồ 7 ngày gần nhất
+
+const last7=dates.slice(0,7).reverse();
+
+chart.innerHTML=last7.map(d=>{
+
+const item=data[d];
+
+const fakeH=item.fake?(item.fake/50)*100:0;
+
+const realH=item.rate!==undefined?item.rate:0;
 
 
-keys.slice(-7)
-.forEach(date=>{
+return `
 
-const d=data[date];
+<div class="bar-group" title="${d}">
 
+<div class="bar fake" style="height:${Math.max(fakeH,5)}%"></div>
 
-const group=
-document.createElement("div");
+<div class="bar real" style="height:${Math.max(realH,5)}%"></div>
 
-group.className="bar-group";
+</div>
 
+`;
 
-const fake=
-document.createElement("div");
-
-fake.className="bar fake";
-
-fake.style.height=
-((d.fake||0)/50*100)+"%";
-
-fake.title=
-"Nỗ lực ảo: "+(d.fake||0);
-
-
-const real=
-document.createElement("div");
-
-real.className="bar real";
-
-real.style.height=
-(d.study||0)+"%";
-
-real.title=
-"Học thật: "+(d.study||0)+"%";
-
-
-group.appendChild(fake);
-
-group.appendChild(real);
-
-chart.appendChild(group);
-
-});
+}).join("");
 
 }
 
 
-
-/* ================= XÓA DỮ LIỆU ================= */
-
 function clearData(){
 
-if(confirm(
-"Bạn chắc chắn muốn xóa toàn bộ dữ liệu?"
-)){
+if(confirm("Bạn có chắc chắn muốn xóa toàn bộ dữ liệu đã lưu?")){
 
 localStorage.removeItem(KEY);
 
@@ -2191,23 +2065,19 @@ data={};
 
 renderProgress();
 
-toast("Đã xóa dữ liệu!");
+toast("Đã xóa sạch dữ liệu!");
 
 }
 
 }
 
 
-
-/* ================= START ================= */
+// Khởi tạo ban đầu
 
 renderQuestions();
-
-updateVideo();
-
-go("home");
 
 </script>
 
 </body>
+
 </html>
