@@ -498,6 +498,10 @@ th{
     background:#f8fafc;
 }
 
+.col-date {
+    white-space: nowrap;
+}
+
 /* CHART */
 
 .chart{
@@ -1418,7 +1422,7 @@ Dữ liệu được lưu trực tiếp trên thiết bị của bạn.
 
 <tr>
 
-<th>Ngày</th>
+<th class="col-date">Ngày</th>
 
 <th>Nỗ lực ảo</th>
 
@@ -1467,7 +1471,7 @@ Xóa toàn bộ dữ liệu
 
 <br><br>
 
-Sản phẩm hỗ trợ nghiên cứu về thói quen học tập, nỗ lực ảo và việc sử dụng nội dung ngắn ở học sinh.
+Sản phẩm đánh giá mức độ nỗ lực ảo và thói quen học tập của học sinh.
 
 <br><br>
 
@@ -1996,12 +2000,15 @@ if(item.video!==undefined){ totalVid+=item.video; countVid++; }
 
 if(item.rate!==undefined){ totalRate+=item.rate; countRate++; }
 
+// Chuyển đổi định dạng ngày từ YYYY-MM-DD sang DD/MM/YYYY
+const dateParts = d.split("-");
+const formattedDate = dateParts.length === 3 ? `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}` : d;
 
 return `
 
 <tr>
 
-<td><b>${d}</b></td>
+<td class="col-date"><b>${formattedDate}</b></td>
 
 <td>${item.fake ? item.fake+'/50' : '-'}</td>
 
@@ -2081,3 +2088,4 @@ renderQuestions();
 </body>
 
 </html>
+
